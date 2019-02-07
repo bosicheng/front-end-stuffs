@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div,span{
+            width:200px;
+            height:200px;
+            background-color: red;
+        }
+        /*这里span是行级元素无法改变200px颜色，需要设置为块级元素*/
+        span{
+            display:inline-block;
+            /*在改变下div*/}
+        div{
+            display: inline-block;
+        }
+        /*行级元素*/
+        /*再改变为行级块元素*/
+    </style>
+
+</head>
+<body>
+<div>
+    aaa
+</div><span>bbb</span>
+把中间的空格或者空格去掉就可以把两个行级块元素中间的空白去掉
+</body>
+</html>

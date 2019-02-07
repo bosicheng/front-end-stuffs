@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--声明HTML版本-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--编码集防止乱码，设置编码-->
+    <title>测试</title>
+    <meta name="keywords" content="鲜花">
+    <h1>hello world</h1>
+    <p>h</p>
+    <a href="http://www.baidu.com">这是一个链接</a>
+    <br>
+    <a href="http://www.baidu.com" target="_blank">这是一个链接</a>
+    <!--target 的作用是打开新页面不覆盖原有页面-->
+    <br>
+    <img src="html1.png" alt="图片加载失败" title="仿真截图">
+    <!--alt是加载图片失败时的说明，title是鼠标停留时的注释-->
+    <table>
+        <th>表头</th>
+        <th>第二个表头</th>
+        <tr>
+            <td>11</td><td>12</td>
+        </tr>
+        <tr>
+            <td>13</td><td>14</td><td>15</td>
+        </tr>
+    </table>
+    <!--table是表格，tr代表行，td代表列。
+    <!--无序列表-->
+    <div><ol start="50">
+        <li>111</li>
+        <li>222</li>
+    </ol>
+        <ul>
+            <li>111</li>
+            <li>222</li>
+        </ul>
+    </div>
+    <!--有序列表-->
+    <!--每个div其中的元素全部在一行-->
+    <div> 哈哈哈 <span style="color:rebeccapurple">哈哈哈</span> 哈哈哈</div>
+    <form action="">
+        用户名：<input type="text"><br>
+        密码：<input type="password">
+    </form>
+    <form action="">
+        <label for="username">用户名：</label><input id="username" type="text"><br>
+        <label for="mima">密码：</label><input id="mima" type="password">
+    </form>
+    <div>
+        <input type="radio" name="sex">男
+        <input type="radio" name="sex">女
+        <!--name的意义在于不让同时选男女-->
+        <!--radio就是单选-->
+    </div>
+    <div>
+        爱好：<br>
+        <input type="checkbox" name="爱好">游泳
+        <input type="checkbox" name="爱好" checked>篮 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;球
+        <input type="checkbox" name="爱好">听歌
+        <!--一个&nbsp;一个空格-->
+    </div>
+    <!--checkbox用于多选-->
+    <!--checked意味着默认被选上-->
+    <div>
+    学校：
+    <select name="" id="">
+        <option value="1">黑大</option>
+        <option value="林大">林大</option>
+        <option value="">理工</option>
+    </select>
+        <!--value是真正取得值，并不是用户看到的-->
+    </div>
+    <button>按钮</button>
+    <div>
+    <button type="button" onclick="alert('hello world!')">点击我！</button>
+</div>
+    <input type="submit" value="提交按钮">
+    <!--终结form-->
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <!--文本框-->
+    <br>
+    <input type="date">
+    <!--这个文本框可以直接选日期-->
+    <br>
+    <input type="color">
+    <br>
+    <input type="email">
+    &lt; &gt;
+    <!--上面分别一个是小于号一个是大于号-->
+
+    <br>
+    <script >
+        alert('aaa');
+    </script>
+    <br>
+    &lt;select &gt;
+        alert('aaa');
+    &lt;/select &gt;
+    <!--块级元素：垂直分布，自己占一正行-->
+    <!--行级元素：水平分布-->
+    <!--行元素和块元素有时候会成为面试题-->
+    <!--面试题：html标签语义化的意义是什么？1.方便其他开发人员 2.搜索引擎优化（seo）-->
+    <!--搜索引擎优化:可以直接搜索标题，不用每个div找-->
+</head>
+<body>
+
+</body>
+</html>

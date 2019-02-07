@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 没有这个全局改内边距外边距会有空 */
+        }
+        #ul1{
+            width: 120px;
+            border:1px solid #999;
+            border-radius: 10px;
+            /* list-style=none是为了修改ul中默认样式 */
+            list-style: none;
+            display: none;
+            
+            /* 绝对定位必须存在因为如果不存在下面无法通过坐标定位 */
+            /* 绝对定位是相对于父元素所以是body  */
+            position: absolute;
+        }
+        li{
+            height: 30px;
+            line-height: 30px;
+            /* //文本水平居中 */
+            text-align: center;
+            font-size: 12px;
+            color:#555;
+        }
+        li:hover{
+            background-color: blue;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- 右键菜单核心是取到点击事件发生时的坐标 -->
+
+    <ul id='ul1'>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+        <li>444</li>
+        <li>555</li>
+    </ul>
+    <script>
+        // 对整个document绑定右键点击事件
+        var oUl1=document.getElementById('ul1');
+        document.oncontextmenu=function(e){
+            oUl1.style.display='block';
+            var left=e.clientX;
+            var top=e.clientY;
+            oUl1.style.left=left+'px';
+            oUl1.style.top=top+'px';
+            // 为了解决右键点击出来默认菜单
+            return false;
+        }
+        var aLi=document.getElementsByTagName('li');
+        for (var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+
+                // console.log(this.innerHTML);
+            }
+        }
+        document.onclick=function(){
+            oUl1.style.display='none';
+        }
+    </script>
+</body>
+</html>

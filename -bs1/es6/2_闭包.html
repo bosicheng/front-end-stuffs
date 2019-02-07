@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+    </ul>
+
+    <script>
+    <!-- 闭包 -->
+    <!-- 外部函数中有内部函数，内部函数引用外部函数中的变量 -->
+    <!-- 这样变量不释放 一直保存，这样形成闭包 -->
+
+    <!-- 缺点 内存泄漏 -->
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick=function(){
+            console.log(i);
+        }
+    }
+
+    for(var i=0;i<aLi.length;i++){
+
+        (function(idx){
+            aLi[i].onclick=function(){
+                console.log(idx);
+            }
+        })(i) 
+        <!-- 函数的立即调用 -->
+        <!-- 上面这种意义是函数内是单独作用域，不会污染全局 -->
+        <!-- 运行方式：把变量i传进里面的function运行，再把idx传进内部函数 -->
+    }
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var oDiv=document.getElementById('div1');
+    oDiv.onmouseover=function() {
+
+        console.log(oDiv.style.width)
+
+        //这样取不到oDiv的宽度！！！原因：oDiv.style.width只能取到内联样式的属性
+        console.log(oDiv.offsetWidth);
+        //使用oDiv.offsetWidth取宽度
+        //注意oDiv.style.width只能设置宽度，oDiv.offsetWidth只能取宽度
+
+        if (oDiv.offsetWidth < 800) {
+            var timer = setInterval(function () {
+                oDiv.style.width = oDiv.offsetWidth + 20 + 'px';
+                // 这句话如果不加限制条件会有bug，每次滑入都会右移不管有没有限制，可以加if(oDiv.offsetWidth<800)限制条件
+
+                if (oDiv.offsetWidth >= 800) {
+                    clearInterval(timer);
+                }//取到的width是整个元素的宽度，包括border和padding
+            }, 30);
+        }
+    }
+
+    //oDiv.offsetLeft等取距离的函数，取到的是相对最近已定位的父元素的距离,并不是相对于body
+
+
+    //oDiv.offsetParent取到最近已定位的祖先元素
+
+
+    </script>
+</body>
+</html>

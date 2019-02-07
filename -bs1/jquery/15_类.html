@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj={
+        name:'zs',
+        age:10
+    }
+
+    function Person(name,age){
+        this.name=name;
+        this.age=age;
+        // this.eat=function(){
+        //     console.log(this.name+' is eating')
+        // }
+        // 不推荐把方法写在这里，最好写在下面，因为一百个对象就有一百个方法比较麻烦，就是Person.prototype语句
+    }
+
+    Person.prototype.eat=function(){
+        console.log(this.name+' is eating');
+        // 这样写的话一类的属性就不需要重复写了
+    };
+
+    // 类 用new来生成
+
+    var person1=new Person('lisi',20);
+    person1.eat();
+
+    // 这里联系jQuery原理的文件
+
+</script>
+
+</body>
+</html>

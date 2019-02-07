@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x=window.prompt('请输入x的值','');
+    var y=window.prompt('请输入y的值','');
+    function min(a,b){
+        if(a<b){
+            return a;
+        }
+        else if(a>b){
+            return b;
+        }
+        else{
+            return '两个值相等！';
+        }
+
+    }
+
+    // 直接return x<y?x:y;!!!!!!!!!!!!!
+    document.write(min(x,y));
+</script>
+
+</body>
+</html>

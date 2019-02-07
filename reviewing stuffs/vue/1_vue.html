@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        {{aa}}
+    </div>
+    <div id="app2">
+        {{test}}
+    </div>
+<script src='vue.js'></script>
+<script>
+    // view+message
+    let vm1=new Vue({
+
+        el:'#app',//代表vue要挂载的元素，这只是一个选择器
+        
+        data:{//代表元素的数据
+            msg:'我是msg',
+            // 可以直接在console控制台写vm1.msg,不用非得写vm1.$data.
+            aa:'aaa'
+        }
+    });
+
+    let vm2=new Vue({
+        el:'#app2',
+        data:{
+            test:'abc'
+        }
+    })
+
+</script>
+</body>
+</html>

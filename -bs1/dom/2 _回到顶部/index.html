@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn{
+
+        }
+    </style>
+</head>
+<body>
+<a href="javascript:;" id="btn"></a>
+<!--注意href里面不打空格打javascript:;点击时就不会刷新页面了-->
+<script>
+    var oBtn=document.getElementById('btn');
+    oBtn.onclick=function(){
+        //滚动页面到最顶部 0 0位置
+        window.scrollTo(0,0);
+        //document.documentElement=>html
+        //获取滚动条距离上边的高度
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+        var timer=setInterval(function(){
+            scrollTop-=20;
+            window.scrollTo(0,scrollTop);
+            if (scrollTop<=0){
+                clearInterval(timer);//没有这个if就会到最上面以后下不来
+            }
+        },20);
+    }
+</script>
+
+</body>
+</html>

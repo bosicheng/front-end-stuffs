@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <weichuang></weichuang>
+
+    </div>
+    <div id="app2">
+
+        <!-- 这个demo相对于下面的components中demo是父组件 -->
+        <demo title='11111'></demo>
+
+        <demo title='22222'>
+            <div slot='slot1'>
+                <h1>我来替换slot1</h1>
+            </div>
+            <div slot='slot2'>
+                <h1>我来替换slot2</h1>
+            </div>
+        </demo>
+    </div>
+    <script src="vue.js"></script>
+
+
+
+    <!-- 这个是当组件模板内容太多时可以把内容单放在一个template中 -->
+    <script type='text/x-template' id='temp'>
+        <div>
+            <h6>demodemo{{title}}</h6>
+            <p>
+
+                <!-- 这个slot标签的作用：设置默认内容（占坑），标签不传值时用slot内部的，但是标签有内容时不显示slot中内容，会用标签内容覆盖掉所有slot中的内容 -->
+                <!-- 解决替换所有slot问题的方法：在slot上加name并且在上面的标签上加slot属性 -->
+
+                <slot name='slot1'>
+                    <h1>我是slot1默认值</h1>
+                </slot>
+            </p>
+            <div>
+                <slot name='slot2'>
+                    <h1>我是slot2默认值</h1>
+                </slot>
+            </div>
+        </div>
+    </script>
+
+
+
+
+    <script>
+        // 第一个参数代表组件名，第二个参数代表组件模板
+        // 组件中不允许两个根元素，意思是说不允许一个h2一个p，但是可以用div把它包起来，这叫一个根元素
+        // Vue.component是作用全局的，和下面新建的vue对象无关
+        Vue.component('weichuang',{
+            template:'<div><h2>标题</h2><p>文字</p></div>'
+        });
+        var vm=new Vue({
+            el:'#app2',
+            data:{
+
+            },
+            components:{
+                // 这样也可以设置模板
+
+                // 相对于上面的demo这个是子组件
+                // props是内置属性，用于父组件到子组件传值
+                demo:{
+                    template:'#temp',
+
+                    // 这个很重要
+                    props:['title']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

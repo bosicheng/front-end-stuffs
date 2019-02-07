@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="val in arr">{{val}}</li>
+            <!-- 循环arr数组 -->
+            <!-- val 代表value -->
+           
+        </ul>
+        <div v-text="num"></div>
+        <button v-on:click="show(2,$event)">click</button>
+        <!-- 上面也可以写陈@click: -->
+
+        <h2 v-for="(val,key) in obj">{{key}}:{{val}}</h2>
+
+        <!-- v-for代表循环的数值,就是for循环-->
+        <!-- val是属性值，key是属性名 -->
+
+
+        <!-- <div v-text="msg></div>
+        <div v-text="msg></div> -->
+        <!-- 上面两条指令基本等于两个花括号 -->
+        
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                arr:[1,2,3,4,5],
+                obj:{
+                    name:'zs',
+                    age:20,
+                    school:'weichuang'
+                },
+                num:0
+                
+            },
+            methods:{
+                show(x,e){
+                    console.log(e);
+                    this.num+=x;
+                }
+            }
+
+        })
+    
+    </script>
+    
+</body>
+</html>

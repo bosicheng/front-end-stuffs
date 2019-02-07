@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0036;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    aaa
+    <div id="div2">
+        bbb
+    </div>
+</div>
+<script>
+    var oDiv=document.getElementById('div1');
+    var oDiv2=document.getElementById('div2');
+    // oDiv.onclick=function(e){
+    //     // // e=e||window.event;//事件
+    //     // // e.clientX         //鼠标距离浏览器左边
+    //     // console.log('div1');
+    //     console.log('111');
+    // }
+    // // oDiv2.onclick=function(e){
+    // //     console.log('div2');}
+    // // 事件冒泡是子元素事件触发父元素事件
+    // oDiv.onclick=function(e){
+    //     console.log('222');
+    // }
+    // 同时绑两个事件只会触发最后一个,处理方法是下面的事件监听
+    oDiv.addEventListener('click',function(){console.log('111');},false);
+    oDiv.addEventListener('click',function(){console.log('222');},false);
+</script>
+
+</body>
+</html>

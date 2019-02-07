@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+
+<script src="vue.js"></script>
+<script>
+
+    // 8个生命周期
+
+    // 看pdf
+    var vm=new Vue({
+        el:'#app',
+        data:{
+
+        },
+        beforeCreate(){//组件实例刚被创建，组件属性计算之前，如data等
+            console.log('beforeCreate...');
+        },
+        created(){//组件实例创建完成，属性已绑定，但DOM还未生成，$el还不存在
+            console.log('created...');
+        },
+        beforeMount(){//模板编译/挂载之前
+            console.log('beforeMount...');
+        },
+        mounted(){//模板编译/挂载之后
+            console.log('mounted...');
+        },
+        beforeUpdate(){//组件更新之前
+            console.log('beforeUpdate...');
+        },
+        updated(){//组件更新之后
+            console.log('updated...');
+        },
+        beforeDestroy(){//组件销毁前调用
+            console.log('beforeDestroy...');
+        },
+        destroyed(){//组件销毁后调用
+            console.log('destroyed...');
+        }
+    })
+
+</script>
+</body>
+</html>

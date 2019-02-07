@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:100px;
+            height:50px;
+            background:#ff0000;
+            display:inline-block;
+            border:1px solid #000;
+        }
+
+        #div2{
+            /*对div2定位*/
+            position:absolute;
+            left:80px;
+            top:30px;
+            /*相对定位是相对自己原有位置定位并且自己原有的位置不释放*/
+
+        }
+        #div0{
+            width: 800px;
+            height: 500px;
+            background: #cccccc;
+            margin:200px;
+            /*注意在绝对定位的情况下，div2不随着div0改变*/
+            position:relative;
+            /*加上这句话以后div2重新随着div0移动*/
+
+        }
+        #div4{
+            width: 500px;
+            height: 300px;
+            background: #00ff00;
+            margin:50px;
+        }
+        /*虽然div2的父元素是div4，但是它的绝对定位仍然随着div0移动*/
+
+
+    </style>
+</head>
+<body>
+
+<!--四种定位：
+static     默认的
+relative   相对定位  相对于自己原来的位置，不释放原有位置
+absolute   绝对定位  相对于最近已定位的祖先元素，如果没有则相对于body,脱离原来的文档流空间释放
+fixed      固定定位  空间释放
+-->
+<div id="div0">
+    <div id="div4">
+<div id="div1">
+    div1
+</div>
+<div id="div2">
+    div2
+</div>
+<div id="div3">div3</div>
+    </div>
+</div>
+
+</body>
+</html>

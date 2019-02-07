@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height:2000px;
+        }
+        #div1{
+            background:red;
+            height:500px;
+            background-image: url("html1.png");
+/*背景图片无法撑大元素，元素高度限制图片大小*/
+             background-repeat:no-repeat;
+            /*默认repeat，改为no-repeat*/
+            /*图片会盖住颜色*/
+            background-position:30px 50px;
+            /*第一个水平走，第二个垂直走*/
+background-attachment: fixed;
+
+
+        }
+        #div2{
+            width:500px;
+            height:500px;
+            /*background-image: url("css2.jpg");*/
+            /*限制图片的尺寸，以上为不推荐写的格式，下面是推荐写的格式*/
+            background: url("css2.jpg")  green 50px 0px no-repeat;
+        }
+        #div3{
+            width:200px;
+            height:300px;
+            background-color: purple;
+            text-indent: 30px;
+            /*首行缩进*/
+            text-align:center;
+            /*水平居中，当然也可以写left right*/
+        }
+        #div4{
+            width:200px;
+            height:300px;
+            background-color: blue;
+            /*首行缩进*/
+            text-align:center;
+           line-height: 300px;
+
+           /*垂直水平居中，注意这里的line-height选择与height相同;*/
+        /*span行级元素也可居中*/
+            margin:0 auto;
+            /*块级元素水平居中*/
+        }
+       a{
+            text-decoration: none;
+            /*把a标签所有装饰去掉，当然也可以加，注意所有连接默认underiline*/
+           color:red;
+           font-weight:bold;
+           /*加粗*/
+           font-size:100px;
+           /*调整字体大小*/
+           font-family:sans-serif；
+           /*调整字体*/
+           /*可以用font: 的方式合起来*/
+
+
+
+
+       }
+        ul{
+            list-style: none;
+            /*去掉列表的点*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <!--没有高度时有颜色也没用，高度是0-->
+    hahaha
+</div>
+<div id="div2"></div>
+
+<div id="div3">
+    fshlqfnxz    sfssamsaks   vnsadwhasnlk.m    w.CG.WHWEJWPj;q    jdmholfwqnql.     fjq;x/ms;xw
+</div>
+<div id="div4">
+    qfwpmcxf
+</div>
+<div id="div5">
+    <a href="http://www.baidu.com">baidu</a>
+</div>
+<div id="div6">
+    <ul>
+        <li>aaa</li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin:100px auto;
+            overflow: hidden;
+            position:relative;
+        }
+        #container ul{
+            width: 520px;
+            /* 如果不给ul加宽的话li就会掉下来，所以要加宽！！！！ */
+
+            overflow: hidden;
+            /* 目的：占据空间使下面的div span可以调整位置 */
+
+            position: absolute;
+        }
+        #container li{
+            width:120px;
+            height: 120px;
+            background-color: pink;
+            float:left;
+            margin-right: 10px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 120px;
+            color: #fff;
+        }
+        #btn{
+            margin: 135px auto 0;
+            /* 这里margin-top本来高度是15px可以正常显示btn是因为最初ul仅仅只是浮动，是半脱离文档流，会挤下去btn但是没有高度 */
+            /* 但是由于需要对ul进行定位用到position:absolute，导致最后完全脱离文档流，必须要给btn设置上外边距强行挤下来 */
+
+            width: 210px;
+        }
+        #btn span{
+            display: inline-block;
+            /* 只要是给行元素设置宽高就加这个 */
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            background-color: blue;
+            color:#fff;
+            text-align: center;
+            line-height: 50px;
+
+
+            /* 此时如果设置位置是无法设置的因为它上面的ul浮动了不占空间半脱离文档流 */
+            /* 需要把ul    overflow: hidden; */
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id='container'>
+        <ul id='img-box'>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+        <div id='btn'>
+            <span id='left'>向左</span>
+            <span id='right'>向右</span>
+        </div>
+    </div>
+
+    <script>
+        var oImgBox=document.getElementById('img-box');
+        var oLeft=document.getElementById('left');
+        var oRight=document.getElementById('right');
+
+        var timer;
+
+        // 复制一份ul内容然后再加到ul中
+        oImgBox.innerHTML+=oImgBox.innerHTML;
+        // 由于多了一份内容li会被挤下来，需要改变ul宽度
+        oImgBox.style.width=oImgBox.offsetWidth*2+'px';
+
+        timer = setInterval(function(){
+            if (oImgBox.offsetLeft<=-oImgBox.offsetWidth/2){
+                oImgBox.style.left=0;
+            }
+            oImgBox.style.left=oImgBox.offsetLeft-3+'px';
+        },20);
+
+        oRight.onmouseover=function(){
+            clearInterval(timer);
+            timer=setInterval(function(){
+                if (oImgBox.offsetLeft>0){
+                    oImgBox.style.left=-oImgBox.offsetWidth/2+'px';
+                }
+                oImgBox.style.left=oImgBox.offsetLeft+3+'px';
+            },20)
+        }
+        oLeft.onmouseover=function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+            if (oImgBox.offsetLeft<=-oImgBox.offsetWidth/2){
+                oImgBox.style.left=0;
+            }
+            oImgBox.style.left=oImgBox.offsetLeft-3+'px';
+            },20);
+        }
+        // 这里可以合成一个run函数来简化
+
+
+    </script>
+</body>
+</html>

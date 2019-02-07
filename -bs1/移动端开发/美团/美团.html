@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, width=device-width, user-scalable=no">
+    <script src="../jquery-1.12.4.js"></script>
+    <script src="../jquery.mobile-1.4.5.js"></script>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.5.min.css"/>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav-bar{
+            width: 750.4px;
+            height: 102px;
+            display:-webkit-flex;
+            display:flex;
+            background: #06c1ae;
+        }
+        .nav-city{
+            width: 167px;
+            height: 100%;
+            overflow-x: hidden;
+            display:block;
+            color:inherit;
+            display: -webkit-flex;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+            color:#ffffff;
+        }
+        .nav-city .city{
+            font-size:2rem;
+        }
+        .inline{
+            width: 485.4px;
+            background-color: inherit;
+            display: -webkit-flex;
+            -webkit-justify-content: center;
+            -webkit-align-items: center;
+        }
+        .line{
+            width: 100%;
+            display: -webkit-flex;
+            -webkit-align-items: center;
+            font-size:1.8rem;
+            color:#68dbce;
+            height: 63%;
+            background: rgba(0,0,0,.15);
+        }
+
+        .nav-wrap-right{
+            width:98px;
+            background-color: inherit;
+        }
+    </style>
+</head>
+<body>
+<div class="nav-bar">
+    <div class="nav-city">
+        <div class="city">哈尔滨↓</div>
+    </div>
+    <div class="inline">
+        <div class="line">
+            <i class="icon-search text-icon">⌕</i>
+            <span class="single-line">输入商家/品类/商圈</span>
+        </div>
+    </div>
+    <div class="nav-wrap-right"></div>
+</div>
+
+<div class="banner-download">
+    <img src="images/download_banner.png" alt="">
+</div>
+</body>
+</html>

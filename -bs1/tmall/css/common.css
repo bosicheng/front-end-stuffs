@@ -1,0 +1,120 @@
+/*声明所有元素*/
+*{
+    margin:0px;
+    padding:0px;
+}
+body{
+font:12px/1.5 tahoma,arial,"\5b8b\4f53";
+    -webkit-font-smoothing: antialiased;
+}
+ul{
+    list-style:none;
+}
+a{
+    text-decoration: none;
+}
+/*nav开始*/
+.nav{
+    height: 33px;
+    background: #f2f2f2;
+    border-bottom: #e5e5e5;
+}
+.wrapper{
+    width: 1230px;
+    margin:0 auto;
+    /*height:32px;*/
+}
+/*给wrapper是因为整个页面都是居中自适应，所以用class方便后面使用*/
+.nav-box{
+    height: 32px;
+    line-height:32px;
+    /*font-size:12px;*/
+    color:#999;
+}
+.nav-login a{
+    padding:0 10px 0 10px;
+    color:#999;
+    /*background: #ff0000;*/
+    }
+.nav-login .login-btn{
+    padding-left:20px;
+}
+/*这里注意，login-btn前面不写.nav login的话优先级不如a，会被覆盖*/
+/*在写内部元素的时候要尽可能把父级元素加上，否则可能会优先级不够*/
+.nav-login a,.nav-login span{
+    float:left;
+}
+.nav-login a:hover{
+    color:#FF0036;
+}
+.nav-menu{
+    float:right;
+}
+.nav-menu>li{
+    float:left;
+        }
+/*注意menu浮动以后，虽然它是块元素，但是它的宽度是其中的元素支撑的，不再是无限的，因此li不会贴到左边*/
+.nav-link{
+    color:#999999;
+    display:block;
+    padding:0 10px;
+}
+.sn-menu{
+    position:relative;
+}
+/*绝对定位是相对于已定位的祖先元素，所以需要把这个伪元素的父级元素定位一下*/
+.sn-menu::after{
+    content:'';
+    width: 0px;
+    height: 0px;
+    border-width:3px;
+    border-style:solid;
+    border-color:#999 transparent transparent transparent;
+    position:absolute;
+    right:0px;
+    top:16px;
+    transition:transform 0.5s linear;
+    transform-origin: 3px 1.5px;
+    /*以三角形的中心进行旋转*/
+}
+.sn-menu:hover{
+    background-color:white;
+    height: 33px;
+    }
+.sn-menu a:hover{
+    color:#FF0036;
+    text-decoration: underline;
+}
+/*先写hover再写after*/
+.sn-menu:hover::after{
+    transform:rotate(180deg);
+
+   }
+.sn-menu:hover .sub-sn-menu{
+    display:block;
+}
+.sub-sn-menu{
+    background: #ffffff;
+    border:1px solid #eee;
+    padding:10px 8px;
+    border-top:none;
+    position:absolute;
+    left:0px;
+    top:33px;
+    width: 74px;
+    display:none;
+    /*由于优先级问题，none 的优先级在 display:block之下*/
+}
+.sub-menu-item{
+    line-height:18px;
+    height:18px
+}
+.sub-menu-item a{
+    color:#999;
+}
+.icon-gouwucheman{
+    color:#ff0036;
+    font-size:14px;
+    /*改变插入的图片的大小和颜色*/
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 800px;
+            height: 200px;
+            background: #ff0000;
+            animation: run 2s ease 2s forwards;
+            /* forwards就是不返回初始状态 */
+        }
+        @keyframes run {
+            0%{
+                width: 800px;
+            }
+            100%{
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+
+    <!-- css中的属性
+
+    弹性盒模型  background-size     transform (rotate translate scale)
+    transition:width 2s ease 2s
+
+
+    animation:run 2s ease 2s forwards 
+
+    过渡    需要改变属性    触发
+    动画    可以直接执行    可以执行更复杂的动画 
+    border-shadow       border-radius-->
+
+</body>
+</html>

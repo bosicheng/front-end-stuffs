@@ -1,0 +1,4 @@
+1.iconfont放在文件夹下面
+2. eot svg ttf woff放在font文件夹下面，他们是字体文件,路径改为 ../font/
+3.在页面中引入css文件
+4.demo_fontclass.html 文件中 找到 icon-xxx是什么

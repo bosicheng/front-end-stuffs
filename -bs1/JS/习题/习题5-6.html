@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x=window.prompt('请输入层数','');
+    for(var i=1;i<=x;i++){
+        for ( j=1;j<=x-i;j++) {
+            document.write("&nbsp;");
+        }
+        for(var k=1;k<=i;k++){
+            document.write('*&nbsp;');
+        }
+        document.write("<br/>");
+    }
+</script>
+
+</body>
+</html>

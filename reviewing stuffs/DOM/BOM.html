@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 定时器 setInterval  每隔多少毫秒运行一次内部函数
+        // 清除定时器  clearInterval清除定时器(需要给定编号)
+        var count=0;
+        var timer=setInterval(function(){
+            count++;
+            console.log(Math.random());
+            if (count==10){
+                clearInterval(timer);
+            }
+        },1000);
+
+
+        //setTimeout()同setInterval只不过只执行一次
+
+        
+        
+    </script>
+    
+</body>
+</html>

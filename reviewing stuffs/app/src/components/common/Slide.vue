@@ -1,0 +1,117 @@
+<template>
+     <div id="container">
+        <div class='img-box'>
+            <!-- transtion会默认用span包住里面的内容，如果不想用span可以写成tag='div' -->
+            <transition-group name='fade' tag='div'>
+                <img v-show="index == nowIndex" :key='index' v-for="(img,index) in imgs" :src="img" alt="">            
+            </transition-group>
+        </div>
+        <ul class='btn-box'> 
+            <li v-for='(x,index) in imgs.length' :class='{selected:index==nowIndex}' :key='index' @click='change(index)'>{{x}}</li>
+        </ul>
+    </div>
+</template>
+
+<script>
+    export default {
+        data(){
+            return{
+            imgs:[
+            "https://img3.doubanio.com/lpic/s24468373.jpg",
+            "https://img3.doubanio.com/lpic/s27102925.jpg",
+            "https://img3.doubanio.com/lpic/s6989253.jpg",
+            "http://omratag7g.bkt.clouddn.com/%E6%9D%8E%E5%81%A5.jpg"
+            ],
+            nowIndex:0,     
+            // 轮播图可以设置nowIndex变量来改变显示图片
+            }
+        },
+        methods:{
+            change(index){
+                this.nowIndex=index;
+            }
+        },
+        // 轮播需要created
+        created() {
+            // 这里必须用钩子函数，因为setInterval的作用域是window（this会指向window），要让箭头函数使this指向对象
+            setInterval(() => {
+                this.nowIndex++;
+                if (this.nowIndex==this.imgs.length){
+                    this.nowIndex=0;
+                }
+            },1500);
+        },
+    }
+</script>
+
+<style scoped>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    a{
+        text-decoration: none;
+    }
+    ul{
+        list-style: none;
+    }
+    .img-box img{
+        width: 100%;
+        height: 300px;
+        /* display: none; */
+        
+        /* 这里给图片定位的原因是做轮播图动画最好定位否则有的时候图片不在0，0位置 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* 这里有一个很恶心的问题，container高度是img-box撑的，img-box定位以后脱离文档流container高度变成0，而btn-box是相对container bottom定位，所以btn-box会消失 */
+        /* 解决方法：给container加高度 */
+    }
+    /* .img-box img.selected{
+        display: block;
+    } */
+    #container{
+        position: relative;
+        height: 300px;
+
+    }
+    .btn-box{
+        position: absolute;
+        right: 15px;
+        bottom: 20px;
+    }
+    .btn-box li{
+        float: left;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: #ffffff;
+        margin-right: 5px;
+        border:1px solid #ccc;
+        border-radius: 5px;
+    }
+    .btn-box li.selected{
+        background: orange;
+    }
+
+
+    /* 下面是css3语法，同时transition的name要改成tag */
+    .fade-enter {
+        transform: translateX(100%);
+    }
+    .fade-enter-to {
+        transform: translateX(0);
+    }
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: transform 1s linear;
+    }
+    .fade-leave {
+        transform: translateX(0);
+    }
+
+    .fade-leave-to {
+        transform: translateX(-100%);
+    }
+</style>

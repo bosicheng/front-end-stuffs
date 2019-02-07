@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person1={
+            name:'zs',
+            age:'18',
+            father:{
+                name:'lisi'
+            }
+        }
+
+        //浅克隆，由于对象和数组占用堆内存，只是改变指针时改变其中值会一起变化
+        var person2=person1;
+         
+
+        
+        //深克隆，申请出新内存空间存储objCopy
+        function clone(obj){
+            var objCopy={};
+            for (key in obj){
+                if (obj[key] instanceof Object){
+                    objCopy[key]=clone(obj[key]);
+                }else{
+                    objCopy[key]=obj[key];
+                }
+            }
+            return objCopy
+        }
+        var person3=clone(person1);
+
+        person1.father.name='zss';
+        console.log(person2.father.name);//输出改变后属性  
+        console.log(person3.father.name);//输出改变前属性
+
+    </script>
+</body>
+</html>

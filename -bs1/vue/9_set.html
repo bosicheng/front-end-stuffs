@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app">
+                <button @click="change()">click</button>
+                <ul>
+                    <li v-for="val in list">{{val}}</li>
+                </ul>
+                <h2 v-for="(val,key) in obj">{{key}} --- {{val}}</h2>
+            </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                list:[1,2,3,4,5],
+                obj:{
+                    name:"zs"
+                }
+            },
+            methods:{
+                change(){
+                    this.obj.name="lisi";
+                    // Vue不能通过索引设置数组的值，也就是中括号 
+                    // Vue不能改变对象的属性
+                }
+            },
+        });
+    </script>
+</body>
+</html>

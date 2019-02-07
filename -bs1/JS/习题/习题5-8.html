@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+        function pi(n){
+          return  Math.pow(-1,n-1)/(2*n-1);
+        }
+
+        function a(n){
+            var sum=0;
+            for( var i=1;i<=n;i++){
+                sum=sum+pi(i);
+            }
+            return 4*sum;
+        }
+        console.log(a(1000));
+
+</script>
+
+</body>
+</html>

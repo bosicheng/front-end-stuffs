@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 基本数据类型：number, boolean, string, null, undefined
+        // 引用数据类型：object, array
+
+        var a =10;
+        console.log(a++);
+        // ++a 和a++区别
+
+        console.log(a);
+        console.log('12'-3);
+        // 字符串会被自动转换成数字形式
+        console.log('abc'-3);
+        // JS减法时会尽量转换成数字转换不成会变成NaN Not A Number
+        console.log('ab'+3);
+        // JS的加法只要碰到字符串就一定会拼接，减法会尝试转换
+        //同理乘法遇到字符串和数字也会出现NaN
+
+        bool=false
+        console.log(bool+'');
+        // 这里会直接拼接成为字符串输出'false'
+
+        // &&与    ||非
+
+        str='aaa'
+        console.log(!str)
+        //非空的字符串即为真！！！
+        //非0的数字即为真！！！ 包括负数
+
+        console.log(''*1);
+        // 这个是假
+
+        var num=window.prompt('请输入年龄',18);
+        //这一行代码会阻断代码的执行，只有点击确定或者取消才会继续往下走
+        //对于点击取消会发生num=null
+        console.log(num);
+
+        // 将字符串转化为数字 string*=1, 这个背下来
+        num=str*=1
+        console.log(typeof num);
+
+        console.log(c);//变量提升，这里没有报错只是显示Undefined是因为下面c被定义只是这时没有值
+        var c=10;
+
+        bb();//函数提升
+        function bb(){
+            console.log('haha');
+        }
+
+        // 但是注意：
+        cc();
+        // 这里会报错，因为此时是把一个function赋给了一个变量，同理于变量提升
+        var cc=function(){
+            console.log('333');
+        }
+
+        
+        //变量名只能以 字母，美元符号，下划线开头， 之后可以有数字但是不能以数字开头
+        // JS命名是驼峰式
+
+    </script>
+</body>
+</html>

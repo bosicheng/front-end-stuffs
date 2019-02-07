@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            /*动画过渡*/
+            /*1s的延迟，以ease的方式，2s的执行时间，属性是width*/
+            /*transition:width 2s ease 1s;*/
+            transition:transform 2s ease;
+            margin:50px auto;
+            transform-origin:100px 50px;
+
+        }
+        #div1:hover{
+            width:500px;
+            transform:rotate(180deg);
+            /*transform:scale(2);*/
+            /*transform:translateY(30px);*/
+            /*transform:scale(0.5);*/
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+div111
+</div>
+
+</body>
+</html>

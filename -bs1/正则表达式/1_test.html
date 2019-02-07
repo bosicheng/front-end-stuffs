@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var a1='a';
+
+    var reg=/a/;
+    var reg1=new RegExp('a');
+    //上面两种方法的区别：第一种不支持匹配变量，第二种支持，比如第二种会匹配'a'，第一种会匹配一个'a'和1
+
+    //  /c{3}/代表匹配两个连续的c   /c{3,4}/会选择匹配尽可能多也就是4个
+
+    var str='abcdef';
+    console.log(reg.exec(str));
+    // 会匹配结果没有则Null
+
+
+    var reg2=/c{1,}/;
+    // 这里的意思是匹配大于等于1个c
+    var str2='cccccTest';
+    console.log(reg2.exec(str2));
+
+
+    var reg3=/c?/;
+    // 这里的意思是匹配0或1个c
+    var str3='Test';
+    console.log(reg3.exec(str3));
+
+    //正则表达式是贪婪模式，在允许的情况下会尽可能多的匹配
+    // 但是加入问号之后会变为非贪婪模式，会匹配尽可能少的字符
+
+    var reg4=/c{1,}?/;
+    
+    var str4='cccccTest';
+    console.log(reg4.exec(str4));
+
+    //  []是字符集
+    // [^abc]中^不代表从某字符开始，而是代表非abc中任何一个，比如用来匹配blueidea则输出l
+
+    //  \b代表以字符为边界   /\bc/以c为开头的边界     /c\b/以c为结尾边界    这里的边界可以是字符串中的空格！！！
+
+    var reg5=/\bb\b/;
+    var str5='a b c';
+    console.log(reg5.exec(str5));
+
+
+    // \d是数字，\B非边界
+    // \w等同于[a-zA-Z0-9_] 单词字符
+
+    var reg6=/(\w)\w/;
+    var str6='blueidea';
+    //这里会输出bl和b，括号不影响匹配但是会单独再匹配一次
+
+    var reg7=/(\w)\1/;
+    var str7='blueidea';
+    // \1反向引用，代表的是第一个括号中匹配到的结果，此处结果为null，因为没有连续bb
+    var reg8=/(\w)(\w)\2\1/;
+    var str8='abba';
+
+    // \g指在全局找
+    var reg9=/(\w)(\w)\2\1\g/;
+    var str='abbaehwgoslcbbc';
+
+    //JS下有4种支持正则表达式的方法.
+    </script>
+    
+    
+
+    
+</body>
+</html>

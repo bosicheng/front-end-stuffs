@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    // const a=10;
+    // a=20;
+    // 上面是错误的，不可以修改常量
+
+    const obj={
+        name:'zs',
+        age:10
+    }
+
+    obj={
+        name:'abcd'
+    }
+    // 这里是错误的，因为obj是栈内存中地址指针指向堆内存中的对象，只有堆内存中对象能更改
+    // 花括号是改地址，.属性是改对象
+
+
+    // obj.name='abcd';
+    // 这里会报错因为修改了指针
+
+    Object.freeze(obj);
+    obj.name='lisi';
+    console.log(obj);
+
+
+
+    </script>
+    
+</body>
+</html>

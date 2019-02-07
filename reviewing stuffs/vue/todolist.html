@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            margin:50px auto;
+        }
+        ul li{
+            height: 50px;
+            width: 400px;
+            background: #cccccc;
+            line-height: 50px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+        .price ,.close{
+            /* float:right是按照从上到下的顺序反过来！！！！ */
+            float: right;
+        }
+        ul li .close{
+            color: #ff0036;
+            margin-left: 10px;
+        }
+        .selected{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <h1>To Do List</h1>
+        <hr>
+        <div>
+            <!-- for 属性规定 label 与哪个表单元素绑定 -->
+            <label for="">名称</label>
+            <!-- 这里注意：如果想input进什么值v-model直接与data中某属性绑定 -->
+            <input type="text" placeholder="请输入产品名" v-model='name'>
+            <label for="">价格</label>
+            <input type="text" placeholder="请输入产品价格" v-model='price'>
+            <button @click='add()'>添加</button>
+        </div>
+        <div>
+            <input type="text" placeholder="请输入搜索内容" v-model='searchValue'>
+            <button @click='search()'>搜索</button>
+        </div>
+        <ul>
+            <!-- input类最好不要用value用v-model -->
+            <li v-for='(val,key) in liList' @click='change(val)' :class='{selected:val.isSelected}'>
+                <input type="checkbox" v-model='val.isSelected'>
+                <span>{{val.name}}</span>
+                <!-- 这里需要反过来是因为向右浮动顺序倒过来了 -->
+                <span class='close' @click='delone(key)'>[X]</span>
+                <span class='price'>{{val.price}}</span>
+            </li>
+        </ul>
+        <div>
+            <button @click='del'>删除选中</button>
+            <span>总价</span>
+            <span>{{sum()}}</span>
+        </div>
+        
+    </div>
+
+<script src="vue/vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#container',
+        data:{
+            liList:[
+                {
+                    name:'裤子',
+                    price:11,
+                    isSelected:false
+                },
+                {
+                    name:'衣服',
+                    price:22,
+                    isSelected:false
+                },
+                {
+                    name:'电脑',
+                    price:33,
+                    isSelected:false
+                },
+                {
+                    name:'手机',
+                    price:44,
+                    isSelected:false
+                }
+            ],
+            searchValue:'',
+            name:'',
+            price:'',
+            checked:[]
+        },
+        methods:{
+            change(val){
+                val.isSelected=!val.isSelected;
+            },
+            add(){
+                this.liList.push(
+                    {
+                        name:this.name,
+                        price:this.price,
+                        isSelected:false,
+                    }
+                )
+            },
+            search(){
+                for(var i=0;i<this.liList.length;i++){
+                    if (this.liList[i].name==this.searchValue){
+                        Vue.set(this.liList[i],'isSelected',true)
+                    }
+                }
+            },
+            sum(){
+                var total=0;
+                this.liList.forEach(function(pro,idx){
+                        if(pro.isSelected){
+                            total+=pro.price;
+                        }
+                    });
+                return total;
+            },
+            del(){
+                // 删除最好使用逆向循环!!!
+                for(var i=this.liList.length-1;i>=0;i--){
+                    if(this.liList[i].isSelected){
+                        this.liList.splice(i,1)
+                    }
+                }
+            },
+            delone(key){
+                this.liList.splice(key,1);
+            }
+        }
+    })
+</script>
+</body>
+</html>

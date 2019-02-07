@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // .concat() 括号内可以是元素也可以是多个数组
+        // .join() 里面是分隔符
+        // .push() 等于 python中的append()
+        // .unshift() 等于 python中 appendleft()
+        // .shift() 等于popleft()
+        // .slice(start,end) 数组切片 start必须 end不必须   不修改原数组 只返回新数组
+
+
+        // .sort() 需要比较函数
+        var arr1=['5','20','100','200','1000'];
+        console.log(arr1.sort(function(a,b){
+            return a-b;
+            // 如果这里是b-a就是最大到最小
+        }));
+
+        //splice(开始位置，删除个数，添加项目1，添加项目2，...)向数组中添加或者删除，会改变原始数组
+
+        // Math.random() [0,1)
+        // Math.ceil()     Math.floor()
+        
+        //charAt()返回指定位置的字符
+        // indexOf()返回字符在字符串中首次出现的索引，第二个参数数从某个位置开始找
+
+        // spilt()如果是空字符串就是分割出所有字符
+    </script>
+</body>
+</html>

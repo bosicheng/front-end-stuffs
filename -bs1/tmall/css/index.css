@@ -1,0 +1,433 @@
+.logo{
+    width: 240px;
+    height: 130px;
+    float:left;
+}
+.search-box{
+    /*background: #ff0000;*/
+    float:left;
+    margin:38px 0 0 120px;
+}
+.search{
+    width: 625px;
+    height: 36px;
+    border:2px solid #ff0036;
+}
+.search-text{
+    width: 491px;
+    height: 36px;
+    border:none;
+    outline:none;/*去掉input点击时的小蓝边*/
+    float:left;
+}
+
+.search-btn {
+    width: 134px;
+    height: 36px;
+    border: none;
+    background: #ff0036;
+    font-size: 18px;
+    float: left;
+    color:#fff;
+}
+.search-wrap{
+    overflow:hidden;
+}
+
+.under-search{
+    margin-top:5px;
+
+}
+.under-search li{
+    float:left;
+    padding: 0 12px;
+    position:relative;
+}
+
+.under-search   li.under-search-hot  a{
+    /*这里的li和.under-search-hot之间不可以有空隙！！！*/
+    color:red;
+}
+.under-search li a{
+    font-size: 14px;
+    color:#999;
+}
+
+.under-search li.first{
+    padding-left:0px;
+}
+.under-search li span{
+    width: 1px;
+    height: 14px;
+    color: #999999;
+    /*float:right;*/
+    /*块元素不能设置宽高*/
+    /*浮动以后可以设置*/
+    position:absolute;
+    right: 0px;
+    top:1px;
+}
+
+.menu-box{
+    height: 35px;
+    border-bottom:2px solid #ff0000;
+}
+
+.menu-list{
+    margin-left: 200px;
+}
+.menu-list li{
+    float:left;
+    height: 36px;
+    line-height:36px;
+}
+.menu-list img{
+    width: 100px;
+    /*vertical-align: middle;*/
+    margin-top:3px;
+}
+
+.menu-list a{
+    color:#333;
+    font-size:16px;
+    display:block;
+    /*上一句目的：让a充满li*/
+    padding：0 8px;
+    font-weight:500;
+}
+.slide-box{
+    position: relative;
+}
+.slide-item{
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index:-2;
+}
+.slide-item1{
+    background:#fee9ec;
+}
+.slide-item2{
+    background:#aa632c;
+}
+.slide-item-link{
+    width: 1230px;
+    margin:0 auto;
+    /*注意，margin 0 auto是用来给块元素居中的，行元素居中一般用text-align居中*/
+    /*所以这里需要改为块元素*/
+    display:block;
+}
+
+.slide-item-link img{
+    width: 1230px;
+    /*写这个是因为图片比较小，不写的话左边空白部分小于右边，需要让它填满*/
+    height: 500px;
+    display:block;
+    /*小技巧：图片放进元素中会有小空白框，需要display:block;*/
+}
+.category-box{
+    width: 200px;
+    position:relative;
+    top:-36px;
+    height: 500px;
+}
+.category-title{
+    height: 36px;
+    background: #ff0036;
+    /*margin-top:-36px;*/
+    line-height: 36px;
+    font-size:16px;
+    color:#ffffff;
+}
+.category-box i{
+    color:#fff;
+    margin:0 14px;
+}
+
+.category-list{
+    /*background: rgba(0,0,0,.55);*/
+    background: #000000;
+    opacity: 0.55;
+}
+.category-item{
+    height: 31px;
+    line-height: 31px;
+    font-size:14px;
+}
+.category-item>a{
+    display: block;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    /*消除锯齿*/
+    font-family: "Microsoft YaHei",SimSun,'\5b8b\4f53',sans-serif;
+}
+.category-item:hover{
+    background: #ffffff;
+}
+.category-item:hover>a,.category-item:hover>a>i{
+    color:#ff0036;
+}
+
+.tmall-content{
+    background: #cccccc;
+    border:1px solid transparent;
+    /*给父元素设置边框，否则会产生外边距合并！！！因为所有元素外边距为0，子元素margin32，则合并后32*/
+}
+
+.brand-wrapper{
+    margin-top: 32px;
+}
+.brand-item h2{
+    height: 55px;
+    line-height: 55px;
+    background: #ffffff;
+    width: 234px;
+    padding-left: 8px;
+}
+
+.b-title{
+    font-size:18px;
+    font-weight:bold;
+}
+.b-sale{
+    font-size:14px;
+    font-weight: 700;
+}
+
+.b-more{
+    float:right;
+    margin-right:13px;
+    color:#9d9d9d;
+}
+.b-img{
+    width: 242px;
+    /*100%为什么不可以？*/
+}
+.b-img:hover{
+    opacity:0.7;
+    /*filter:alpha(opacity=70);*/
+    /*第二条是IE指令*/
+}
+.brand-list-wrapper{
+    margin-top: 10px;
+}
+.brand-list{
+    overflow: hidden;
+    background: #999999;
+}
+.brand-list-item{
+    width: 122px;
+    height: 108px;
+    background: #ffffff;
+    padding-top:29px;
+    box-sizing:border-box;
+    /*这里加上内边距以后盒模型会变大，为了不让它变大要变为怪异盒模型*/
+    float:left;
+    margin-right:1px;
+    margin-bottom:1px;
+    position: relative;
+}
+.brand-list-item:hover .brand-list-hover{
+    display:block;
+}
+.brand-list-item img{
+    width: 100px;
+    height: 50px;
+    /*这里不可以用margin:0 auto！！！因为这是给块元素居中的*/
+    margin:0 auto;
+    display:block;
+}
+.brand-list-hover{
+    width: 122px;
+    height: 108px;
+    background: rgba(0,0,0,0.7);
+    /*使用rgba和opacity的区别是rgba只会让背景半透明而opacity会直接让字也透明*/
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    /*覆盖在上面：先绝对定位释放文档流再相对定位父元素再定位坐标*/
+    display:none;
+}
+
+.b-list-word{
+    color:white;
+    margin-top:30px;
+    text-align:center;
+}
+.b-list-btn{
+    color:#fff;
+    background: #ff0036;
+    display:block;
+    width: 65px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius:10px ;
+    margin:5px auto;
+}
+.mart-wrapper{
+    margin-top: 20px;
+}
+.mart-head{
+    height: 31px;
+    line-height: 31px;
+    margin-bottom:5px;
+}
+.mart-img{
+    width: 214px;
+    height: 25px;
+}
+.mart-head-list{
+    float:right;
+}
+.mart-head-list li{
+    float:left;
+}
+.mart-head-list li a {
+    color: #000;
+    font-size: 14px;
+    margin: 5px 10px;
+    border-bottom:1px solid #f5f5f5;
+    padding-bottom: 1px;
+}
+.mart-head-list li a:hover{
+    /*text-decoration: underline;*/
+    border-bottom:1px solid #000;
+}
+.mart-body{
+    overflow: hidden;
+}
+.mart-left{
+    float:left;
+}
+.mart-left-img{
+    width: 235px;
+    height: 618px;
+}
+.mart-item{
+    margin-left:13px;
+    background: #ffffff;
+}
+.mart-item-1{
+    padding: 10px;
+    background: #ffffff;
+    width: 484px;
+    height: 301px;
+    box-sizing: border-box;
+    /*让内边距不撑大元素*/
+}
+.mart-right{
+    float:right;
+    background: #ff0036;
+    width: 995px;
+    height: 618px;
+}
+.mart-item-shadow{
+    box-shadow:0 2px 8px 0 rgba(0,0,0,0.09);
+    overflow: hidden;
+}
+.mart-btns{
+    overflow: hidden;
+}
+.mart-btns span{
+    float:left;
+    width: 50%;
+    height: 57px;
+    line-height:57px;
+    text-align:center;
+    background: #f1f1f1;
+    font-size:18px;
+
+}
+.mart-btns .active{
+    background: #00b262;
+    color:#fff;
+}
+.mart-content{
+    height: 225px;
+}
+.mart-content-item{
+    position:relative;
+    height: 100%;
+    /*这个高度设置是为了定位mart-item-word，使它充满它的父元素*/
+    display:none;
+}
+.mart-active{
+    display:block;
+}
+.mart-content-item .mart-item-img{
+    width: 200px;
+    height: 200px;
+    float:right;
+    margin-top:10px;
+}
+.mart-item-word{
+    width: 291px;
+    height: 87px;
+    background: url("../image/mart-bg.png") 0 0 no-repeat;
+    background-size:291px 87px;
+    position:absolute;
+    left: 0px;
+    bottom: 52px;
+}
+.mart-word-title{
+    font-size: 24px;
+    font-weight:700;
+    color:#00b262;
+    margin-left:26px;
+    height: 40px;
+    line-height: 40px;
+}
+.mart-word-title-img{
+    margin-right: 10px;
+    vertical-align:middle;
+}
+.mart-word-title-txt{
+    vertical-align: middle;
+}
+.mart-word-desc{
+    font-size: 20px;
+    margin-left:26px;
+}
+.mart-item-2{
+    width: 234px;
+    height: 302px;
+    background: #ffffff;
+    text-align:center;
+    /*给父元素设置text-align:center可以让它里面的图片居中*/
+    border: 1px solid #ffffff;
+}
+.mart-item-2:hover{
+    border: 1px solid #ff0036;
+}
+.mart-pro-img{
+    width: 185px;
+    height: 185px;
+    margin-top: 20px;
+}
+.mart-pro-desc{
+    width: 135px;
+    margin:0 auto;
+    overflow:hidden;
+    line-height:20px;
+    height:40px;
+    font-size: 14px;
+    color:#333;
+}
+.mart-pro-price{
+    color:#ff0036;
+    font-size:18px;
+    margin-top:3px;
+}
+.mart-item{
+    float:left;
+    margin-left:13px;
+    margin-bottom: 11px;
+}
+.mart-item-5{
+    margin-left: 12px;
+}
+.mart-item:hover .mart-item-img,.mart-item:hover .mart-pro-img{
+    opacity:0.7;
+}

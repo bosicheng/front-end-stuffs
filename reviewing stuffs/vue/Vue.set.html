@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button @click='change()'>111</button>
+
+        <ul>
+            <li v-for='val in list'>{{val}}</li>
+        </ul>
+
+        <h2 v-for='(val,key) in obj'>{{key}}:{{val}}</h2>
+    </div>
+    
+
+    <script src='vue.js'></script>
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                list:[1,2,3,4,5],
+                obj:{
+                    name:'zs'
+                }
+            },
+            methods:{
+                change(){
+
+                    // 修改数组元素：
+                    // this.list[1]=8;  这种方式不好使！！！
+                    Vue.set(this.list,1,8);//标准用法
+                    // 这里也可以用splice也是好使的
+                    
+
+                    // 修改对象属性：
+                    // this.obj.age=20  这种添加方式同样是不好使的！！！
+                    // 但是可以通过上面的方式修改！！
+                    Vue.set(this.obj,'name','lisi');
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

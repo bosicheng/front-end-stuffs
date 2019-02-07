@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 1.let没有变量提升
+    // 2.let没有重复声明，比如let a=5     let a=6
+
+
+
+    var a=10;
+    function aa(){
+        console.log(a);
+        var a=20;
+    }
+    aa();
+    // 这里输出的是undefined
+    // 因为在函数内部是局部作用域
+    // 相当于在函数内部变量提升，和函数外部没有关系
+
+
+
+    let b=10;
+    function bb(){
+        console.log(b);
+        let b=20;
+    }
+    // 3.let暂时性死区：在当前作用域中不允许同名变量进来
+
+    
+</script>
+</body>
+</html>

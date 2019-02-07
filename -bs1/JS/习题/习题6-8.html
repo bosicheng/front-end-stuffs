@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var d={
+        year:window.prompt("请输入一个年份",""),
+        month:window.prompt("请输入一个月份",""),
+        day:window.prompt("请输入一个日期","")
+    }
+    var arr=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+    if(d.year%4==0&&d.year%100!==0||d.year%400==0){
+        arr[1]=29;
+    }
+    function DayOfYear(d){
+        var now=0;
+        for(var i=1;i<d.month;i++){
+            now=now+arr[i-1];
+        }
+        now+=parseInt(d.day);
+        return now;
+    }
+    document.write("今天是这一年的第"+DayOfYear(d)+"天");
+</script>
+
+</body>
+</html>

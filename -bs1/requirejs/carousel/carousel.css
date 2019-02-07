@@ -1,0 +1,23 @@
+define(function(){
+function Carousel(){
+var str='<div id="container">
+/*这里的str后加引号是15年新语法，不需要取消空格*/
+<img src="img/1.jpg" alt="">
+<img src="img/2.jpg" alt="">
+<img src="img/3.jpg" alt="">
+<img src="img/4.jpg" alt="">
+<span id="prev">&lt;</span>
+<span id="next">&gt;</span>
+<ul id="tab">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+</ul>
+</div>'
+}
+
+
+
+return Carousel;
+})

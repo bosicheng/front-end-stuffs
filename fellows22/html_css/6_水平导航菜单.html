@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* css reset */
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        img{
+            border: 0;
+        }
+
+        #nav{
+            width: 409px;
+            height: 30px;
+        }
+
+        #nav li.main-menu{
+            width: 100px;
+            height: 30px;
+            background: #ff0000;
+            float: left;
+            margin-right: 3px;
+        }
+
+        #nav a{
+            color: #fff;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: block;
+            /*float: left;*/
+            line-height: 30px;
+        }
+        #nav a:hover{
+            background: orange;
+        }
+        #nav li.last{
+            margin-right: 0;
+        }
+        #title{
+            background: #cccccc;
+        }
+
+        #nav .submenu{
+            display: none;
+            /*clear: both;*/
+        }
+
+        #nav .main-menu:hover .submenu{
+            display: block;
+        }
+
+        #nav .submenu li:hover{
+            background: #ccc;
+        }
+
+        #nav .submenu li{
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li class="main-menu">
+            <a href="">Link One</a>
+        </li>
+        <li class="main-menu">
+            <a href="">Link Two</a>
+            <ul class="submenu">
+                <li>子菜单1</li>
+                <li>子菜单2</li>
+                <li>子菜单3</li>
+            </ul>
+        </li>
+        <li class="main-menu">
+            <a href="">Link Three</a>
+        </li>
+        <li class="last main-menu">
+            <a href="">Link Four</a>
+        </li>
+    </ul>
+
+    <!--<h1 id="title">这是一个标题</h1>-->
+
+    <!--<a href="http://www.baidu.com">-->
+        <!--<img src="2.jpg" alt="">-->
+    <!--</a>-->
+
+</body>
+</html>

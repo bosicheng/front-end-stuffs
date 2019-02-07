@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            /* 这句话不要忘了加 */
+            list-style: none;
+        }
+        #container{
+            width: 750px;
+            height: 291px;
+            /* 块元素居中 */
+            margin: 0 auto;
+            /* 把内部元素溢出部分隐藏 */
+            overflow: hidden;
+            
+            position: relative;
+        }
+        #img-box{
+            width: 3750px;
+            
+            /* 这一步是是图片相对父元素移动 */
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /* css3属性，参数分别为属性，运动时间，运动方式，延迟时间*/
+            transition:left 1s linear;
+        }
+        #img-box a{
+            /* 为什么这里需要浮动所有元素？ */
+            /* 因为不浮动会有空隙这样会把第五个元素挤下去 */
+            float: left;
+        }
+        #btn-box{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;            
+        }
+
+        /* 群组选择器 */
+        #btn-box li,#arrow-box span{
+            width: 20px;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            float: left;
+            border-radius: 5px;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            color:#fff;
+            font-size: 12px;
+
+            /* 鼠标划过小手状 */
+            cursor:pointer;
+        }
+        #arrow-box{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        
+        /* 这里不要直接写selected否则选择器优先级不够 */
+        #btn-box li.selected{
+                background:orangered;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <a href="#">
+                <img src="img/1.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="img/2.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="img/3.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="img/4.jpg" alt="">
+            </a>
+            <a href="#">
+                <img src="img/5.jpg" alt="">
+            </a>
+        </div> 
+        <ul id="btn-box">
+            <li class='selected'>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div id='arrow-box'>
+            <span id='prev'>&lt;</span>
+            <span id='next'>&gt;</span>
+        </div>
+    </div>
+
+    <script>
+        var oContainer=document.getElementById('container');
+        var oBtnBox=document.getElementById('btn-box');
+        var aBtn=oBtnBox.getElementsByTagName('li');
+        var oImgBox=document.getElementById('img-box');
+        var oNext=document.getElementById('next');
+        var oPrev=document.getElementById('prev');
+
+        var count=0;
+
+
+        for (var i=0;i<aBtn.length;i++){
+            aBtn[i].index=i;
+            aBtn[i].onclick=function(){
+                for (var j=0;j<aBtn.length;j++){
+                    aBtn[j].className='';
+                }
+                this.className='selected';
+
+                var left=-this.index* 750 ;
+                oImgBox.style.left=left+'px';
+
+                count=this.index;
+            }
+        }
+        
+
+
+        oNext.onclick=function(){
+            count++;
+            
+            if (count==aBtn.length){
+                count=0;
+            }
+
+            for (var j=0;j<aBtn.length;j++){
+                    aBtn[j].className='';
+                }
+            
+            aBtn[count].className='selected';
+            oImgBox.style.left=-count*750+'px';
+            
+        }
+
+        oPrev.onclick=function(){
+            count--;
+            
+            if(count<0){
+                count=aBtn.length-1;
+            }
+
+            for (var j=0;j<aBtn.length;j++){
+                    aBtn[j].className='';
+                }
+            
+                aBtn[count].className='selected';
+                oImgBox.style.left=-count*750+'px';
+        }
+
+        //这里程序可以缩减为function change()然后调用函数
+        //但没啥实用性
+
+
+        var timer=setInterval(function(){
+            oNext.onclick();
+        },1000);
+        
+
+        oContainer.onmouseover=function(){
+            clearInterval(timer);
+        }
+
+        oContainer.onmouseout=function(){
+            
+            // 这里timer绝对不可以再var
+            // 必须是修改全局变量
+            timer=setInterval(function(){
+            oNext.onclick();
+        },1000);}
+
+
+
+    </script>
+</body>
+</html>

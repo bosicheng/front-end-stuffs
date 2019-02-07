@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #ul1{
+            width: 120px;
+            border:1px solid #999;
+            border-radius:10px;
+            list-style:none;
+            display:none;
+            position:absolute;
+        /*下文有left top就必须要进行定位，否则就和没设置一样*/
+        }
+        li{
+            height: 30px;
+            line-height:30px;
+            /*line-height需要设置和height一样的数值，这样可以使它上下居中*/
+            text-align: center;
+            /*text-align: 控制的是左右居中;*/
+            font-size:12px;
+        }
+        li:hover{
+            background: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li>设为代办</li>
+    <li>设为已读</li>
+    <li>置顶邮件</li>
+    <li>添加备注</li>
+    <li>删除</li>
+</ul>
+
+<script>
+    var oUl1=document.getElementById('ul1');
+    document.oncontextmenu=function(e){
+            oUl1.style.display='block';
+            var left=e.clientX;
+            var right=e.clientY;
+            oUl1.style.left=left+'px';
+            oUl1.style.top=right+'px';
+            return false;//阻止默认行为
+    }
+
+    var aLi=document.getElementsByTagName('li');
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                console.log(this.innerHTML);
+                oUl1.style.display='none';
+            }
+        }
+        document.onclick=function(){
+            oUl1.style.display='none';
+        }
+
+</script>
+
+</body>
+</html>

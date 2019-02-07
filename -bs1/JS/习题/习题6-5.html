@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //编制一个将两个字符串交叉合并的函数Merge(s1,s2)，
+    var s1=window.prompt("请输入第一串字符","");
+    var s2=window.prompt("请输入第二串字符","");
+    var part1=Math.min(s1.length,s2.length);
+    var longer="";
+    if(s1.length-s2.length>0){
+        longer=s1;
+    }
+    else longer=s2;
+    function Merge(s1,s2) {
+        var temp="";
+        for (var i = 0; i < part1; i++) {
+            temp=temp+s1.charAt(i)+s2.charAt(i);
+        };
+        for(var j=part1;j<Math.max(s1.length,s2.length);j++)
+        {
+            temp=temp+longer.charAt(j);
+        }
+        return temp;
+    }
+    document.write(Merge(s1,s2));
+
+    // 也可以写成
+    // for(var i=0;i<maxLength;i++){
+    //     if(i<s1.length){
+    //         result+=s1.charAt(i);
+    //     }
+    //     if(i<s2.length){
+    //         result+=s2.charAt{i};
+    //     }
+    // }
+</script>
+
+
+
+</body>
+</html>

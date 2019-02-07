@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">111</div>
+    <div id="div2">222</div>
+    <button>remove span</button>
+    <script>
+        var oDiv=document.getElementById('div1');
+        var oSpan=document.createElement('span');
+        oSpan.innerHTML='<br/>haha';
+        oDiv.appendChild(oSpan);
+        var oDiv2=document.getElementById('div2');
+        
+        // 这里要加true否则只复制节点不复制内容
+        var oDiv1=oDiv.cloneNode(true);
+        oDiv2.appendChild(oDiv1);
+
+        var oBtn=document.getElementsByTagName('button');
+        oBtn[0].onclick=function(){
+            oDiv.removeChild(oSpan);
+
+            // 给元素加属性和方法,getAttribute和setAttritube
+            oDiv.setAttribute('index',20);
+            console.log(oDiv.getAttribute('index'));
+        }
+
+        // 还有replaceChild
+        // 父元素.insertBefore在子元素之前插入节点
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person1={
+            // name:'zs',
+            age:'20',
+            say:function(){
+
+            }
+        }
+
+        // 类 具有相同属性 方法的对象的集合
+
+        function Person(name,age){   构造函数
+            类的首字母大写
+            this.name=name;
+            this.age=age;
+            这里的this指向new出来的实例化对象，比如p1
+            this.say=function(){
+
+            }
+            不推荐直接在构造函数中写方法，因为这样几个Person就有几个方法，推荐用原型
+        }
+
+
+        Person.prototype.say=function(){
+            console.log(this.name+'aaa')
+        }
+
+        var p1=new Person('zs',20);
+        var p2=new Person('lisi',30);
+        
+
+
+        Person.prototype.name='zs';
+        Person.prototype.father={
+            name:'zx'
+        }
+        p1.father.name='zxx';
+        注意这时p1和p2的father.name全部会改变，原因是这里father为引用数据类型，由于堆内存和栈内存，改变p1也改变p2
+        这就是为什么属性写在构造函数下，方法写在原型下
+    </script>
+    
+</body>
+</html>

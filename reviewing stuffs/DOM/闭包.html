@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+    // 外部函数中一个内部函数，内部函数引用外部函数中的局部变量，
+    // 使得外部函数中的局部变量不释放，一直存在
+
+    // 缺点 变量一直存在 容易造成内存溢出
+
+
+    // 这是一个一层函数，外部无法访问到a因为用完就已经被回收了
+    function aa(){
+        var a=1;
+        console.log(a);
+    }
+    aa();
+
+
+
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        (function(idx) {
+            aLi[i].onclick = function () {
+                console.log(i);}
+        })(i);//函数的立即调用，直接加括号传参
+    }
+    // 这个函数能正常运行，是因为外部函数局部变量每次都没有释放
+
+    
+    
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class='bb'>1</li>
+        <li class='aa bb cc'>2</li>
+        <li class='b'>3</li>
+        <li class='ab'>4</li>
+    </ul>
+
+    <script>
+        function getEleByClass(name){
+            var result=[];
+            var ele=document.getElementsByTagName('li');
+            // 取到所有元素或者取li
+            for(var i=0;i<ele.length;i++){
+                console.log(ele[i].className);
+                //首先将字符串按空格分割
+                var arr=ele[i].className.split(" ");//这里被分割为数组['aa','bb','cc']
+                arr.forEach(function(str,index){
+                    if(str==name){
+                        result.push(ele[i]);
+                    }
+                });
+            }
+            return result;
+        }
+        console.log(getEleByClass('bb'));
+    </script>
+</body>
+</html>

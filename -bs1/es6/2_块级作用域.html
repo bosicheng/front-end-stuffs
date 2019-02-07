@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+    <!-- <script>
+    var aLi=document.querySelectorAll('li');
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onclick=function(){
+            console.log(this.index);
+        }
+    } -->
+
+
+    <!-- 块级作用域 -->
+    for(let i=0;i<4;i++){
+        console.log(i);
+    }
+    <!-- 这里会出错，因为let在for if while这类有花括号的部分都会有块级作用域，就是出花括号不好使 -->
+
+    <!-- if(true){
+        let x='a';
+    }
+    console.log(i);
+    这里会报错 -->
+
+
+    for(let i=0;i<aLi.length;i++){
+        aLi[i].onclick=function(){
+            console.log(i);
+        }
+    }
+    <!-- 这个函数用let后console.log中可以用i不用this.index -->
+    <!-- 这里如果用var就必须用this.index，因为没法形成块级作用域  -->
+
+
+    </script>
+</body>
+</html>

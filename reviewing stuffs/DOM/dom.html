@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 对页面中所有元素操作都是dom -->
+    <!-- BOM包含DOM，BOM是browser，里面包含documents -->
+
+
+    <!-- 不把script标签写在body上面的原因：页面从上到下执行，先执行JS会出现问题比如alert不点确定或者取消不继续运行，或者某些元素还没有生成绑不到 -->
+    <!-- 但是可以把所有JS放在window.onload()里面，等页面所有资源加载完再执行 -->
+
+
+    <div>111</div>
+    <div>222</div>
+    <div>333</div>
+
+    <ul>
+        <li class='aa'>111</li>
+        <li>222</li>
+        <li class='aa'>333</li>
+        <li>444</li>
+    </ul>
+    
+
+
+    <input type="text" name=''>
+    <!-- 这个name属性主要是给后台用的如果后台需要的话就给后台 -->
+
+
+    <script>
+        // 给所有对象绑定点击事件
+        封装方法是先建立空数组然后再循环
+        var aDiv=document.getElementsByTagName('div');
+        for(var i=0; i<aDiv.length;i++){
+            aDiv[i].onclick=function(){
+                console.log('aaa');
+            }
+        }
+
+
+        var aLi=document.getElementsByClassName('aa');
+       // 这个是dom3的语法，IE6不支持，如果非要在ie6运行只能自己封装方法
+
+        for (var i=0;i<aLi.length;i++){
+            aLi[i].style.background='red';
+        }
+        //自己封装getElementsByClassName是用getElementsByTagName然后选定所有元素'*'然后for循环如果class名相等推入空数组
+        //但是如果有class名字为'aa bb'时，可以用indexOf，只要不返回-1就可以
+        // 或者用split(' ')也可以
+        
+
+        // context=context||document;//这样无论自变量有没有context都可以运行
+
+
+        //什么时候会返回undefined？
+        // 1.定义变量没有赋值
+        // 2.函数没有传参
+        // 3.访问对象下没有的属性
+        // 4.数组越界
+
+        // typeof null 返回的是object
+
+
+        // arr instanceof Array 与 arr.constructor==Array  是等同的
+
+
+    </script>
+
+    
+</body>
+</html>

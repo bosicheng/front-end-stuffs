@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #content{
+            width: 400px;
+            height: 200px;
+            border:1px solid #000;
+            margin:100px auto;
+            overflow: hidden;
+            position:relative;
+        }
+        ul{
+            width: 520px;
+            overflow:hidden;
+            /*解决浮动以后塌陷，btn挤上来*/
+            position:absolute;
+
+        }
+        li{
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            background: pink;
+            text-align: center;
+            margin-right: 10px;
+            font-size: 40px;
+            color:#fff;
+            float:left;
+        }
+        #btn{
+            margin: 135px auto 0;
+            /*三个元素的时候，是上右下左，但左边省略了，和右边一样均为auto*/
+            /*这里第三个数字0可以不写没有影响，但是如果它下面有元素时如果这里没有0下面的元素就会距离它15px*/
+            width: 210px;
+        }
+        #btn span{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background: palevioletred;
+            color:#fff;
+            text-align:center;
+            line-height:50px;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <ul id="img-box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="btn">
+        <span id="left">向左</span>
+        <span id="right">向右</span>
+    </div>
+</div>
+
+<script>
+    var oImgBox=document.getElementById('img-box');
+    var oLeft=document.getElementById('left');
+    var oRight=document.getElementById('right');
+    var speed=-3;
+    var timer;
+    oImgBox.innerHTML+=oImgBox.innerHTML;
+    oImgBox.style.width=oImgBox.offsetWidth*2+'px';
+
+
+
+
+
+    // var timer=setInterval(function(){
+    //     if(oImgBox.offsetLeft<=-oImgBox.offsetWidth/2){
+    //     oImgBox.style.left=0;
+    // }
+    //
+    //     oImgBox.style.left=oImgBox.offsetLeft-3+'px';
+    // },20);
+    //
+    // oLeft.onmouseover=function(){
+    //     clearInterval(timer);
+    //     setInterval(function() {
+    //         if (oImgBox.offsetLeft<=-oImgBox.offsetWidth/2) {
+    //             oImgBox.style.left=0;
+    //         }
+    //         oImgBox.style.left=oImgBox.offsetLeft-3+'px';
+    //     },20)
+    // }
+    //
+    // oRight.onmouseover=function(){
+    //     clearInterval(timer);
+    //     setInterval(function() {
+    //         if (oImgBox.offsetLeft > 0) {
+    //             oImgBox.style.left = -oImgBox.offsetWidth/2 + 'px';
+    //         }
+    //         oImgBox.style.left = oImgBox.offsetLeft + 3 + 'px';
+    //     },20)
+    // }
+
+    function run(){
+        timer = setInterval(function(){
+
+            if(oImgBox.offsetLeft <= -oImgBox.offsetWidth/2){
+                oImgBox.style.left = 0;
+            }
+            if(oImgBox.offsetLeft > 0){
+                oImgBox.style.left = -oImgBox.offsetWidth/2 +"px";
+            }
+            oImgBox.style.left = oImgBox.offsetLeft + speed +'px';
+        },20);
+    }
+    run();
+    oRight.onmouseover = function(){
+        speed = 3;
+    }
+    oLeft.onmouseover = function(){
+        speed = -3;
+    }
+
+
+</script>
+
+</body>
+</html>

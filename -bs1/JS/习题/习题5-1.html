@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x=window.prompt('请输入x的值','');
+    function f(){
+        var y=4*x*x+3*x+2;
+        return y;
+    }
+    document.write(f());
+
+    // 可以直接console.log(f(prompt('请输入x的值'))) 里面一层的返回值作为外层函数的自变量
+</script>
+
+</body>
+</html>

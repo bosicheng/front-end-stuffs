@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // alert('aaa');
+        // 代码从上到下执行，所以先alert
+        // window.onload要等页面中所有的资源加载完再执行
+        // window.onload=function(){
+        //     // var oDiv1=document.getElementById('div1');
+        //     oDiv1.onclick=function(){
+        //         console.log('haha');
+        //     }
+        // }
+    </script>
+</head>
+<body>
+<div id="div1">
+    aaaaa
+</div>
+<div>
+    bbbbb
+</div>
+<div>
+    ccccc
+</div>
+<ul id="ul1">
+    <li class="aa bb">aaa</li>
+    <li>bbb</li>
+    <li class="aa">ccc</li>
+    <li>ddd</li>
+</ul>
+<ul>
+    <li class="aa bb">aaa</li>
+    <li>bbb</li>
+    <li class="aa">ccc</li>
+    <li>ddd</li>
+</ul>
+<script>
+    // var a=document.getElementById('div1');
+    // console.log(a);
+    // console.log('111111');
+    // var oDiv1=document.getElementById('div1');
+    // console.log(oDiv1);
+
+
+    var aDiv1=document.getElementsByTagName('div');
+    console.log(aDiv1);
+    // aDiv1是一个-类数组
+    // aDiv1[0].onclick=function(){
+    //     console.log('div');
+    // }
+    for(var i=0;i<aDiv1.length;i++){
+        aDiv1[i].onclick=function(){
+            console.log(111);
+        }
+    }
+    // getElementsByClassName
+
+    // function getEleByClass(clsName){
+    //     var result=[];
+    //     var aEle=document.getElementsByTagName('*');
+    //     // 取到全部元素
+    //     for(var i=0;i<aEle.length;i++){
+    //         if(aEle[i].className==clsName){
+    //             result.push(aEle[i]);
+    //             // 把所有class名字为clsName的元素提取出来
+    //         }
+    //     }
+    //     return result;
+    // }
+    // var aA=getEleByClass('aa');
+    // for(var j=0;j<aA.length;j++){
+    //     aA[j].style.background='red';
+    // }
+
+    function getEleByClass(clsName,context) {
+        var result = [];
+        // if (!context) {
+        //     context = document;//当context是undefined时换成document
+        // }
+        // 或者不写上面的if判断语句，直接写
+        context=context||document;//这样无论自变量有没有context都可以运行
+        var aEle = context.getElementsByTagName('*');
+        for (var i = 0; i<aEle.length; i++) {
+            // if(aEle[i].className.indexOf(clsName)!=-1)result.push(aEle[i]);
+            // 最好不要这么写，比如class是aabb的情况下也可能被认为是成立的
+            var str = aEle[i].className;
+            var arr = str.split(' ');//这里要有空格！！！
+            for (var j = 0; j < arr.length; j++) {
+
+            if (arr[j] == clsName) {
+                result.push(aEle[i]);
+                }
+            }
+        }
+        return result;
+    }
+    var oUl=document.getElementById('ul1');
+    var aA=getEleByClass('aa',oUl);//本来应该有oUl
+    console.log(oUl);
+    // 如果这里没有oUl,第二个函参相当于Undefined
+    for(var k=0;k<aA.length;k++){
+         aA[k].style.background='red';
+     }
+
+
+     // var aInput=document.getElementsByName('username');
+    //返回的是数组
+
+
+
+
+
+//总结：
+    //document.getElementById返回的是dom对象，没有则返回null
+    //另外三个函数全部返回数组，否则返回空数组
+
+
+
+</script>
+
+</body>
+</html>

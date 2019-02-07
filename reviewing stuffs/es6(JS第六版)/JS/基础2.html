@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+        // 不用var也可以声明变量，但是不用var声明的是全局变量
+        // 如果在函数中不用var命名变量在函数外也可以访问到
+        // 当然需要先调用一下函数
+        // 这就是为什么尽可能都用var声明变量
+        // 但是不如在函数外var全局变量然后在函数中赋值
+        function aa(){
+            b=10;
+        }
+        aa(); 
+        console.log(b);
+
+
+
+        var person1={
+            name:'zs',
+            age:'18'
+        };
+        var person2={}
+        person2.name=person1.name;
+        person2.age=person1.age;
+        person1.name='lisi';
+        console.log(person2.name);
+        //这里的原因是对象的属性在不同内存地址，只是换了指针
+        // 但是对于对象和数组就是不同的
+
+
+
+        var arr1=[1,2,3];
+        var arr2=arr1;
+        arr1[0]=0;
+        console.log(arr2);
+        //这里arr2也被改变了因为arr2引用的是同一块空间
+        //记住对象和数组都是这样就可以
+
+
+        // 用typeof无法区分数组和对象，但是可以用 instanceof Array 或者 instanceof Object
+        console.log(typeof arr1);//这句话返回的是Object
+        console.log(arr1 instanceof Array);
+
+        // isNaN()不是数字返回true
+        // 数字.toString()转换为字符串
+        // 不可以10.toString()!!!要储存在变量里
+
+
+
+        // parseInt()可以转浮点数但不只可以转浮点数
+        // parseFloat()
+        console.log(parseInt('22a'));
+
+
+        function fnTest(arg1,arg2,arg3){
+            console.log(arguments);
+            // 虽然函数无法接收4个参数，但是arguments相当于一个数组储存的是传过来的所有参数
+
+            // 函数的递归调用:fnTest() 或者arguments.callee()
+        }
+        fnTest(1,2,3,4);
+    </script>
+</body>
+</html>

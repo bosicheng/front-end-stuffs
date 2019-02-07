@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+js 数据类型
+基本数据类型
+   number string boolean null undefined
+引用数据类型
+   object array
+返回undefined
+   定义变量没有赋值
+   函数没有传参返回undefined
+   访问对象下没有的属性
+   数组越界
+数据类型 typeof
+   number 'number'
+   string 'string'
+   boolean 'boolean'
+   null   'object'   这里是JS设计一个错误，可以认为null是一个空对象
+   undefined 'undefined'
+   array 'object'
+   object 'object'
+   function 'function'
+
+   arr instanceof Array  arr是否是Array下的一个实例化对象
+   arr.constructor 返回arr实例的构造函数
+   console.log(arr.constructor==Array); 返回实例对象的构造函数
+
+
+
+
+-->
+<script>
+    obj={
+        name:'zs',
+        age:20,
+        key:40,
+        father:{
+            name:'zz'
+    }
+    };
+    var obj1={};
+    var key='name';
+    for (key in obj){
+        obj1[key]=obj[key];
+    }
+    obj.name='lisi';
+    console.log(obj1.name);
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script>
+
+
+    // 事件中 this指向添加事件(方法)的对象
+    // 定时器中this指向window，因为所有定时器都是window下的事件
+    // 函数中 this指向window
+    // 对象的方法中 this指向当前对象
+
+    var x=100;
+    var foo={
+        x:1,
+        baz:{
+            x:2,
+            zao:function(){
+                return this.x
+            }
+        },
+        zao:function(){
+            return this.x;
+        }
+    }
+
+    console.log(foo.zao());     //1
+    console.log(foo.baz.zao());//2
+    var zao=foo.baz.zao;
+    console.log(zao());//100
+    var bao=foo.baz;
+    console.log(bao.zao()); //2
+
+</script>
+
+</body>
+</html>

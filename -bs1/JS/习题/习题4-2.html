@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var num=window.prompt(‘请输入0-6数字’,’’)
+    switch(num){
+        case 0:
+            alert('星期日');
+            break;
+        case 1:
+            alert('星期一');
+            break;
+            default：
+                alert('输入错误');
+            // 注意这里会显示输入错误，因为输入的时候为字符，而switch 并不是比较'0'==0，而是比较'0'===0，要求类型相等，因此不行
+            //   所以有两种解决方法，一种是改为case'0'   case'1'  ， 一种是在switch前把字符强转为数字，用num=num*1
+
+</script>
+</body>
+</html>

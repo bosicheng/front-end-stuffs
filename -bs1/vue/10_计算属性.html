@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+        <h2>fullName:{{fullName}}</h2>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        let vm=new Vue({
+            el:"#app",
+            data:{
+                firstName:'',
+                lastName:'',
+            },
+            methods:{
+                full(){
+                    return this.firstName+""+this.lastName;
+                }
+            },
+            computed:{
+                fullName:{
+                    // return this.firstName+""+this.lastName;
+                    get:function(){
+                        console.log("get...");
+                        // console.log不要写在return下面！函数中return下面不执行
+                        return this.firstName+" "+this.lastName;
+                        
+                    },
+                    set:function(){
+                        console.log("set...");
+                        // 在手动修改这个值时才会触发set(比如在控制台)(在JS中改的都算)
+                    }
+                }
+            },
+
+            watch:{
+                // 监听属性
+                firstName:function(newVal,oldVal){
+                    console.log(newVal,oldVal);
+                }
+            }
+            // methods 和 computed 区别： 计算属性是可以缓存的，没有修改就仍然用这个值，而方法调用一次用一次
+            // computed本质上也是一种属性
+            // getter
+            // setter
+        })
+    </script>
+    
+</body>
+</html>

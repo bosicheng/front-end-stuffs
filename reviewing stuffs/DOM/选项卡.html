@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btn-box span{
+            display: inline-block;
+            /* 行级块元素 */
+            width: 100px;
+            height: 50px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 50px; 
+        }
+        #con-box div{
+            width: 400px;
+            height: 200px;
+            background: #00ff00;
+            display: none;
+        }
+        #btn-box span.btn-active{
+            background-color: deeppink;
+        }
+        #con-box div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id='content'>
+        <div id='btn-box'>
+            <span class='btn-active'>111</span>
+            <span>222</span>
+            <span>333</span>
+        </div>
+        <div id='con-box'>
+            <div class='active'>111</div>
+            <div>222</div>
+            <div>333</div>
+        </div>
+    </div>
+    <script>
+        var oBtnBox=document.getElementById('btn-box');
+        var aBtn=oBtnBox.getElementsByTagName('span');
+        var oConBox=document.getElementById('con-box');
+        var aCon=oConBox.getElementsByTagName('div');
+        for (var i=0;i<aBtn.length;i++){
+            aBtn[i].index=i;//页面初始化的时候直接加上索引
+            aBtn[i].onclick=function(){
+                for(var j=0;j<aBtn.length;j++){
+                    aBtn[j].className='';
+                    aCon[j].className='';
+                }
+
+                this.className='btn-active';
+                //这里的this绝对不可以换成aBtn[i]，原来是刚加载页面时i已经为3，再点击时才会调用然后发生越界
+                
+                var index=this.index;
+                aCon[index].className='active';
+
+            }
+        }
+    </script>
+</body>
+</html>

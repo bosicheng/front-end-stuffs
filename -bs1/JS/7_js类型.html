@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--var a=5;-->
+<!--var b=a;-->
+<!--a=10;-->
+<!--console.log(b);-->
+<script>
+var person1={
+name:"zhangsan",
+age:18}
+var person2=person1;
+<!--注意这一步是把person1的地址给了person2-->
+person1.name="lisi";
+console.log(person2.name);
+
+function aa(){
+    console.log('aaa');
+}
+console.log(typeof aa);
+
+// typeof无法区分数组还是对象，因为对数组typeof返回的还是对象
+
+    console.log(typeof null);
+
+
+    // 两个等号需要值相等，三个等号需要类型也相等
+    console.log(undefined==null);
+    console.log(undefined===null);
+
+console.log(3=='3');
+console.log(3==='3');
+
+
+// 0开头8进制，0x开头16进制
+var num=020;
+console.log(num);
+
+// !返回布尔值，而NaN布尔值是非
+console.log(!NaN);
+console.log(!!NaN);
+
+// NaN是not a number
+console.log(NaN==NaN);
+// 这个结果是false，因为NaN的值可能不同，这么理解就可以
+
+    var num=10;
+    console.log(num.toString());
+// 转换为2进制的10
+    console.log(num.toString(2));
+
+    // parseInt是转为整型
+    console.log(parseInt(2.3));
+    console.log(parseInt(22+'c'));
+    // 这里返回22
+
+
+    // null,undefined的布尔值是false
+
+    // cc();
+    // dd();
+    // function cc(){};
+    // var dd=function{};
+    //注意这里有函数提升
+
+    function fnTest(x,y,z){
+        console.log(arguments);
+    };
+    fnTest(1,2,3);
+    // 工作区里callee指的是自身函数
+
+</script>
+</body>
+</html>

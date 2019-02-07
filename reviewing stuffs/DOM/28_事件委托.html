@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">click</button>
+<ul>
+    <li>01</li>
+    <li>02</li>
+</ul>
+
+<script>
+    var aLi=document.getElementsByTagName('li');
+    var oBtn=document.getElementById('btn');
+    var oUl=document.getElementsByTagName('ul')[0];
+
+
+    // 后生成元素的事件绑定问题，加载页面时没有加载后生成的元素，后续生成的元素无法在控制台输出
+    // 如果这里仅仅是用for循环绑定初始ul中每个元素点击事件就会发生上述问题
+
+    // 解决方法：利用事件冒泡把事件绑定在父级元素上
+    // 程序如下：
+    oUl.onclick=function(e){
+        // 直接寻找点击事件
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        // 绑定li事件
+        if(target.tagName=='li'){
+            console.log(target.innerHTML);
+        }
+    }
+
+
+    oBtn.onclick=function(){
+        var oLi=document.createElement('li');
+        oLi.innerHTML=Math.random();
+        oUl.appendChild(oLi);
+    }
+
+
+</script>
+
+</body>
+</html>

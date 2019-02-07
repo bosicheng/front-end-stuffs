@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+
+        function aa(x,y){
+            return x+y;
+        }
+
+        aa([3,4]);
+
+
+
+        let aa=function(){};
+
+        // 等同于
+
+        let aa=()=>{};
+
+
+        var aLi=document.querySelectorAll('li');
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                console.log(this);
+                // this指向点击的元素
+            }
+        }
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                setTimeout(function(){
+                    console.log(this);
+                },200)
+            }
+        }
+        // 这里this指向window,因为this是点击的对象但经过延迟了，更改如下
+
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                var _this=this;
+                setTimeout(function(){
+                    console.log(_this);
+                },200)
+            }
+        }
+
+        // 其他用箭头函数的方法：
+        // 函数中this 执行时的this 箭头中的this 声明时
+        // 到它的父作用域找，很重要！！（箭头函数中没有this）
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].onclick=function(){
+                setTimeout(()=>{
+                    console.log(this);
+                },200)
+            }
+        }
+
+        var person={
+            name:'zs',
+            age:10,
+            say:function(){
+                console.log(this);
+
+                // 这里的this指向的是window
+            }
+        }
+
+        person.say();
+
+
+        var person={
+            name:'zs',
+            age:10,
+            say:()=>{
+                aa=()=>{
+                    console.log(this);
+                }
+                aa();
+            // 这里的this仍然是window                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+            }
+        }
+
+        person.say();
+
+
+        Person = (name,age) =>{
+            this.name=name;
+            this.age=age;
+        }
+        var person1=new Person('zs',20);
+
+        //在箭头函数中不允许使用arguments
+
+        let aa = () =>{
+            console.log(argument);
+        }
+        aa(1,2,3,4);
+
+        //非要用可以用...rest
+
+         let aa = (...rest) =>{
+            console.log(rest);
+        }
+        aa(1,2,3,4);
+
+
+    
+    </script>
+</body>
+</html>

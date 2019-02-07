@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btn{
+            width: 34px;
+            height: 66px;
+            position: fixed;
+            right: 30px;
+            bottom: 50px;
+            background-color: red;
+        }
+        #btn:hover{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- a标签写#是刷新页面，但是写javascript:;时就不跳转页面，是一个伪协议 -->
+    <p>回到顶部</p>
+    
+    <a id='btn' href="javascript:;"></a>
+
+    <script>
+        var oBtn=document.getElementById('btn');
+        oBtn.onclick =function(){
+            // window.scrollTo(0,0);
+
+            //document.documentElement是取到当前html
+            
+            var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+            //这里或的意思是设置浏览器，有可能不同浏览器不支持
+
+            var timer=setInterval(function(){
+                screenTop-=20;
+                window.scrollTo(0,screenTop);
+                // 核心在于一定要小于等于0因为screenTop不一定等于0有可能直接为负
+                if(screenTop<=0){
+                    clearInterval(timer);
+                }
+            },1000);
+
+        }
+    </script>
+</body>
+</html>

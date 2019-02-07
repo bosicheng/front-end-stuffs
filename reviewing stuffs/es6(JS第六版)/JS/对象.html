@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象分为：
+        // 内置对象
+        // 自定义对象
+        // dom对象
+
+        // 对象只研究：    属性    方法
+        
+        var stu1=new Object();
+        stu1.name='zxs';
+        stu1.id='111';
+        stu1.age='18';
+        stu1.code=function(){
+            console.log('我正在敲代码');
+        }
+
+        console.log(stu1);
+        
+
+        stu1.code()
+        console.log(stu1.code());
+        //这里会出现undefined,而前者不会，原因是函数块级作用域如下
+
+        var aa=function(x,y){
+            var z=x+y;
+            return z;
+            // 注意这里如果没有return 的时候函数默认返回undefined
+        }
+
+        // 对象内部对自己对象的引用：this.属性   或者  this.方法()
+        var dog=Object();
+        dog.name='bb';
+        dog.eat=function(){
+            console.log(this.name+' is eating');
+        }
+        dog.eat();
+    </script>
+    
+</body>
+</html>

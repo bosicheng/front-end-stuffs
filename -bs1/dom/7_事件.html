@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+<script>
+    var oDiv=document.getElementById('div1');
+    oDiv.onmouseover=function(){//鼠标划入时发生事件
+        console.log('div1 over');
+    }
+
+    oDiv.onmousemove=function(){//鼠标移动时发生事件
+        console.log('div1 move');
+    }
+
+    oDiv.onmouseout=function(){//鼠标划出时发生事件
+        console.log('div1 out');
+    }
+
+    document.onkeydown=function(){//键盘按下时发生事件，这个需要表单元素才可以，oDiv不可以
+        console.log('div1 keydown');
+    }
+
+    //事件的三个元素：  事件 事件源  事件处理函数
+
+    oDiv
+</script>
+
+</body>
+</html>

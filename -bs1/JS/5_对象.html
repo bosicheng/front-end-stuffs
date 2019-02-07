@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    *内置对象
+    *自定义对象
+    *dom对象
+    *
+    *
+    * */
+
+    // 研究一个对象对象就是研究它的  属性  方法
+    // var stu1= new Object();
+    //
+    // stu1.name='zxs';
+    // stu1.id='111';
+    // stu1.age='18';
+    // stu1.school='weichuang';
+    //
+    // stu1.code=function(){
+    //     console.log('我正在敲代码');
+    // }
+    // // console.log(stu1.code());
+    // // code后面的括号必须有，否则直接输出了function
+    // // 这里会出现undefined
+    // stu1.code();
+
+
+    var cat1=new Object();
+    cat1.name='kitty';
+    cat1.age='3';
+
+    cat1.eat=function(){
+        console.log('我正在吃');
+    }
+    console.log(cat1.name);
+    cat1.eat();
+
+    var dog={
+        name:'旺财',
+        age:3,
+        eat:function(){
+            console.log(this.name+'我在吃')
+        }
+    };
+    console.log(dog.name);
+    dog.eat();
+
+
+
+
+</script>
+
+</body>
+</html>

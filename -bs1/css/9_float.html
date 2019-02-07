@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1,#div2,#div3{
+            width: 100px;
+            height: 80px;
+            border:1px solid #000;
+            background: #ff0000;
+            float:left;
+            /*float右边时可以看到先第一个再第二个第三个，解决方法可以是先套一个大元素，右浮动*/
+        }
+        h3{
+            background: #00ff00;
+        }
+        #div0{
+            background:yellow;
+            /*overflow:hidden*/
+            /*overflow:hidden是溢出隐藏*/
+            /*height:80px;*/
+            /*注意这里如果不加height的时候没有黄色，因为块状元素高度由内容支撑，但是div1 2 3全部释放文档流，所以div0没有高度，这就是塌陷*/
+        }
+        /*本来两个块级元素不能在一行*/
+        /*float 脱离文档流 空间释放 后面的元素就会上去*/
+        /*因为块级元素宽是无限的，高是由元素支撑的，浮动以后没有没有高度，释放文档流*/
+        /*经典问题：塌陷  表现：子元素浮动，父元素没有高度*/
+        /*解决方法： 1.给父元素高度  2.给父元素加上overflow:hidden  3.在浮动元素的下面清除浮动  clear:both*/
+
+        .icon{
+            position:absolute;
+            /*注意此时icon是在最右上角，因为没有最近已定位的父级元素，所以直接相对body定位*/
+            right:0px;
+            top:0px;
+            background: pink;
+        }
+        /*使用overflow:hidden时可能出现的问题*/
+
+        .clear{
+            clear:both;
+            /*当然这里使用伪元素也可以，就是不写下面的div.clear，而是直接在这里写#div0::after{content:'';clear:both; display:block}*/
+            /*上面一行中，采取block是因为clear 只对block起效，而伪元素不是块元素*/
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="div0">
+<div id="div1">1
+<span class="icon">haha</span></div>
+<div id="div2">2</div>
+<div id="div3">3</div>
+    <div class="clear"></div>
+
+</div>
+<h3>
+    qwfhoxcljqF;sdf
+</h3>
+
+</body>
+</html>

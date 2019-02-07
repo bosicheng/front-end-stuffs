@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//  var a=1;
+//  var b=2;
+//  var c;
+//
+//  c=(a<b?a:b);
+// // a小于b？是的话输出a，否则输出b
+//  console.log(c);
+
+
+
+
+    // var a=2;
+// var a=window.prompt("请输入一个数字","");
+// 此时注意，window.prompt只返回字符串，需要时要将其转为数字   num*=1
+//     switch(a){
+//         case 1:
+//             console.log('11111');
+//         case 2:
+//             console.log('22222');
+//         case 3:
+//             console.log('33333');
+//         case 4:
+//             console.log('44444');
+//         case 5:
+//             console.log('55555');
+//         default:alert('!!');}
+
+    //     所有情况都不满足时default
+    //
+    // // 某一行跳出循环时打break
+    //
+    //
+    // for(var i=0;i<0;i++)
+    // {
+    //     console.log(i);
+    // }
+
+    // function a(){
+    //     console.log('ok');
+    //     console.log('ok111');
+    // }
+    // a();
+
+    // function add(x,y){
+    //     console.log(x+y);
+    // }
+    //
+    // add(2,3);
+
+    // console.log(a);
+
+// var a =5;//变量提升
+// // 这里输出是undefined，没有报错，因为是变量提升，相当于最上面有一个var a
+//
+//
+//     bb();
+//     function bb(){
+//         console.log('hehe');//函数提升，同样相当于在最上面命名bb为函数，与  var bb=function()相比
+//     }
+
+    // var num=window.prompt("请输入一个数字","");
+    // num*=1;
+    // if(isNaN(num)){
+    //     alert("this is not a number");
+    // }
+
+// for (var i=0;i<10;i++) {//for循环的圆括号里面须放三个句子,分别是1.初使化计数器 2.判断条件 3.更新计数器
+//     alert("i当前的值为"+i);
+// }
+
+
+
+
+
+    function add(x,y){
+        // 局部变量！！！这个z只在这个括号中使用，不可以在后面写console.log(z)!!!
+        var z=x+y;
+        // 注意，如果这里不用var z ，直接在z=x+y，可以调用，因为y用var就是局部变量，不用是全局变量。但是还不如在函数外部var z
+        return(z);
+        把z返回到函数，否则就是Undefined，因为函数默认返回undefined
+    }
+
+
+console.log(add(2,3));
+</script>
+</body>
+</html>

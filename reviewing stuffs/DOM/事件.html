@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            height: 100px;
+            width: 100px;
+            background: #ff0036;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        
+    </div>
+    <script>
+        // 鼠标事件总结：
+        // onmousedown 按下鼠标
+        // onmouseup 松开鼠标
+        // onmouseover鼠标移入
+        // onmousemove鼠标移动
+        // onmouseout鼠标移出
+        
+        //onfocus 某个元素获得焦点
+        var oDiv=document.getElementById('div1');
+        oDiv.onclick=function(e){
+            //事件是不需要调用的，发生时自动执行
+            console.log(e.clientX,e.clientY);
+            // e默认为绑定的事件
+        }
+    </script>
+</body>
+</html>

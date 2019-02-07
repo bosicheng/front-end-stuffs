@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas1" width="800" height="500"></canvas>
+
+<script>
+    var oCanvas=document.querySelector('#canvas1');
+
+    var oCtx=oCanvas.getContext('2d');
+    // 画圆+刻度
+
+    oCtx.beginPath();
+    for(var i=0; i<60; i++){
+        oCtx.moveTo(300,300);
+        oCtx.arc(300,300,100,i*6*Math.PI/180,(i+1)*6*Math.PI/180);
+    }
+    oCtx.stroke();
+    oCtx.closePath();
+
+    //盖 第一个圆
+    oCtx.beginPath();
+    oCtx.arc(300,300,95,0*Math.PI,2*Math.PI);
+    oCtx.fillStyle = "#fff";
+    oCtx.fill();
+    oCtx.closePath();
+
+    //画时针刻度
+    oCtx.beginPath();
+    for(var j=0; j<12; j++){
+        oCtx.moveTo(300,300);
+        oCtx.arc(300,300,100,j*30*Math.PI/180,j*30*Math.PI/180);
+    }
+    oCtx.stroke();
+    oCtx.closePath();
+
+    //盖 第二个圆
+    oCtx.beginPath();
+    oCtx.arc(300,300,90,0*Math.PI,2*Math.PI);
+    oCtx.fillStyle = "#fff";
+    oCtx.fill();
+    oCtx.closePath();
+</script>
+
+</body>
+</html>

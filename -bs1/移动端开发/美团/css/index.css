@@ -1,0 +1,71 @@
+.header{
+    height: 1.01rem;
+    background: #06c1ae;
+    display:-webkit-flex;
+}
+.header-left{
+     width: 1.67rem;
+     height: 1.01rem;
+     line-height: 1.01rem;
+     color: #fff;
+     font-size: .32rem;
+     padding:0 .15rem;
+     box-sizing: border-box;
+ }
+/*两边确定宽度中间自适应，则中间-webkit-flex:1*/
+.header-search{
+    -webkit-flex: 1;
+    background: rgba(0,0,0,.15);
+    border-radius: 0.1rem;
+    height: 0.64rem;
+    margin-top: 0.185rem;
+}
+.header-search input{
+    height: 100%;
+    width: 3rem;
+    outline:none;
+    border:none;
+    background: transparent;
+}
+.header-right{
+    width:0.94rem;
+    color:#fff;
+    text-align:center;
+    font-size:0.2rem;
+}
+.icon-text{
+    display:block;
+    /*块元素把 我的 挤下去*/
+    font-size: 0.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 0.15rem;
+}
+.banner-download img{
+    width: 100%;
+}
+.list{
+    height: 3.24rem;
+    /*border-bottom: 0;*/
+    display: block;
+    font-size: 0;
+    /*这一步很重要，正常说display:inline-block换行时会产生空格，PC端用float解决，移动端在父元素中用font-size:0，此时空格不占位置*/
+}
+.current{
+    /*background: #ff0000;*/
+}
+.list .icon{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 20%;
+    text-align: center;
+    height: 50%;
+    line-height: 50%;
+    background: #0000ff;
+    vertical-align: top;
+    /*这是一个bug,用vertical align解决*/
+    font-size:0.5rem;
+}
+.list .icon .word{
+    font-size:0.2rem;
+}

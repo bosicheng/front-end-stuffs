@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+
+        }
+        /* 解决外边距合并：父元素overflow:hidden */
+    </style>
+</head>
+<body>
+<div id="div1">
+
+</div>
+
+<script>
+    var oDiv=document.getElementById('div1');
+    oDiv.onmouseover=function() {
+        // 首先应该取oDiv的宽度
+        // console.log(oDiv.style.width)
+        //这样取不到oDiv的宽度！！！
+        //oDiv.style.width只能取到内联样式的属性
+        console.log(oDiv.offsetWidth);
+        //使用oDiv.offsetWidth取宽度
+        //注意oDiv.style.width只能设置宽度，oDiv.offsetWidth只能取宽度
+        if (oDiv.offsetWidth < 800) {
+            var timer = setInterval(function () {
+                oDiv.style.width = oDiv.offsetWidth + 20 + 'px';
+                if (oDiv.offsetWidth >= 800) {
+                    clearInterval(timer);
+                }//取到的width是整个元素的宽度，包括Margin
+            }, 30);
+        }
+    }
+
+    //oDiv.offsetLeft等取距离的函数，取到的是相对最近已定位的父元素的距离
+    //oDiv.offsetParent取到父元素5
+</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*http://www.w3school.com.cn/css/css_margin_collapsing.asp*/
+        #div1{
+            width:100px;
+            height:100px;
+            background: blue;
+            margin-bottom: 30px;
+        }
+        #div2{
+            width:100px;
+            height:100px;
+            background: red;
+            margin-top:20px;
+            /*!!!注意此时会引起外边距合并，两个块级元素的距离仍然为30px，取大的值*/
+            /*可以用浮动float与定位position来解决，或者直接把一个外边距取大的*/
+        }
+
+        #div3{
+            width:200px;
+            height:200px;
+            background:#00ff00;
+            margin-top: 30px;
+            border:1px solid transparent;
+            /*或者overflow:hidden也能解决，不用border*/
+
+        }
+
+        #div4{
+            width:100px;
+            height:100px;
+            background:#eeeeee;
+            margin-top:20px;
+            /*此时外边距也会合并*/
+            /*大元素加边框可以解决外边框合并*/
+
+
+
+        }
+    </style>
+</head>
+<body>
+<!--<div id="div1">-->
+    <!--qqq-->
+<!--</div>-->
+
+<!--<div id="div2">-->
+    <!--aaa-->
+<!--</div>-->
+
+<div id="div3">
+    <div id="div4">ccfwhqklmfsc</div>
+</div>
+
+</body>
+</html>

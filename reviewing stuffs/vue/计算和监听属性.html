@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='firstName'>
+        <input type="text" v-model='lastName'>
+
+        <!-- 计算属性是属性！不是方法不要加括号调用 -->
+        <h2>fullName:{{fullName}}</h2>
+    </div>
+    
+    <script src='vue.js'></script>
+    <script>
+        let vm=new Vue({
+            el:'#app',
+            data:{
+                firstName:'',
+                lastName:''
+            },
+            methods:{
+                // full(){
+                //     return this.firstName+this.lastName
+                // }
+
+
+                // 在Vue中通过计算得来的可以放在计算属性computed中
+
+            },
+            computed:{//计算属性
+
+            //计算属性与方法与什么区别？
+            // 计算属性可以缓存，这个值存在与属性中，除非依赖的响应式属性变化（比如下面的this.firstName）
+            // methods方法只要调用就会重复计算
+
+                // fullName(){//=fullname:function(){}
+                //     return this.firstName+this.lastName
+                // },
+                
+                // 可以用get:function(){}和set:function(){}来取值和设置值，基本都是用get
+                
+                fullName:{
+                    get:function(){
+                        console.log('get...');
+                        return this.firstName+this.lastName;
+                    },
+                    set:function(){
+                        console.log('set...');
+                        
+                    // 这里只要响应式属性变化就有get，但是在控制台或者脚本中改fullName属性才会出现set
+                    }
+                }
+            },
+            watch:{//监听属性
+                firstName:function(newVal,oldVal){
+                    console.log(newVal,oldVal)
+                }
+                // 只要调用某个属性就可以，属性发生变化就会执行watch
+            }
+            
+        })
+    </script>
+</body>
+</html>

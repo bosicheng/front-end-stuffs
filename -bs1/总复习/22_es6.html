@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    es6
+
+    let const 箭头函数 set map 解构 promise class   数组 对象 string增加新方法
+
+    一、let var 区别：
+        1.let没有变量提升(下面程序var定义变量后上面引用显示undefined，但是let会报错)
+        2.let有块级作用域   let遇到花括号时里面就是作用域
+        3.let不能重复说明
+        4.let暂时性死区
+            let a=10;
+            function aa(){
+                console.log(a);
+                let a=20;
+            }
+            aa();
+
+            这里用let会显示Undefined，用let会直接报错
+        
+        const a=5;
+        a=6;
+
+
+    二、箭头函数和普通函数区别
+
+
+            1.  this指向    箭头函数中的this声明时的this，也就是指向父作用域
+                普通函数的this指执行时的this
+            
+            2.  箭头函数不能用arguments
+
+                function a(){
+                    console.log(arguments);
+                }
+                a(1,2,3);
+
+                
+                let a=()=>{
+                    console.log(arguments);
+
+                    但是用console.log(rest)就可以
+                }
+                a(1,2,3)
+                会报错
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

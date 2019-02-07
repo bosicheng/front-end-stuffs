@@ -1,0 +1,129 @@
+@charset "utf-8";
+//有中文（包括注释）必须有上一句
+@import 'common.scss';
+//导入公共样式
+
+$color:#f00;
+$a:'head';
+
+//定义变量
+body{
+  background: $color;
+  width: 300px;
+  height: 300px;
+}
+.#{$a}{
+  //字符串用变量引入选择器或者属性中时要用井号加花括号
+  width: 200px;
+  height: 200px;
+}
+.head-logo{
+  width: 10px;
+  background: url('#{$a}.jpg');
+  //这等同于head.jpg
+}
+
+//scss中子元素可以写在父元素中
+.header{
+  width: 200px;
+  height: 200px;
+  .header-son{
+    width: 100px;
+    height: 100px;
+  }
+  //在元素中加hover，两种方式，一种是加在元素中用 &:hover 另一种是在元素后写 元素:hover{}
+  &:hover{
+    background: #ff0000;
+  }
+
+  .header-son:hover{
+    background: #ff0036;
+  }
+}
+
+//混合宏以及调用混合宏
+//@mixin    @include   下面举例子
+
+@mixin border($col){
+  border:2px solid $col;
+  box-shadow:0 0 3px 4px rgba(0,0,0,0.5);
+}
+
+.aa{
+  width: 200px;
+  height: 200px;
+  @include border(red);
+}
+.aa{
+  width: 200px;
+  height: 200px;
+  @include border(green);
+}
+
+//css3语法包装
+@mixin css3($attr,$val){
+  -webkit-#{attr}:$val;
+  -moz-#{attr}:$val;
+  -o-#{attr}:$val;
+  -ms-#{attr}:$val;
+  -#{attr}:$val;
+}
+.cc{
+  @include css3(border-radius,30px)
+}
+
+@mixin arrow(){
+  border-style:solid;
+  border-width:5px;
+  border-color:blue transparent transparent transparent;
+  width:0;
+  height:0;
+}
+
+.arrow{
+  @include arrow();
+}
+
+//继承符@extend
+.dd{
+  width: 200px;
+  height: 200px;
+}
+
+.ff{
+  @extend .dd;
+}
+//占位符
+%gg{
+  color:#000;
+  width: 200px;
+  height: 200px;
+}
+.hh{
+  font-size:20px;
+  @extend %gg;
+}
+
+//自定义函数
+
+@function add($x,$y){
+  @return $x+$y;
+}
+.j {
+  width: add(3,5px);
+  //这里3和5px都被认为是number
+}
+
+@for $i from 1 through 5{
+  .item#{$i}{
+    width:20px*$i;
+  }
+}
+
+$j:5;
+@while($j<10){
+  .a#{$j}{
+    width:20*$j;
+  }
+  $j:$j+2;
+}

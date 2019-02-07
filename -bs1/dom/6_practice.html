@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #btn-box span{
+            display:inline-block;
+            /*相对于块元素然后左浮，inline-block有中间的空隙，需要把块元素中间的空格去掉*/
+            width: 100px;
+            height: 50px;
+            background: #ff0000;
+            text-align:center;
+            line-height:50px;
+            cursor:pointer;
+            /*手指挪到上面的时候变成小手*/
+        }
+
+        #btn-box span.btn-active{
+            background: deeppink;
+        }
+
+        #con-box div{
+            width: 400px;
+            height: 200px;
+            background: #00ff00;
+            display:none;
+            /*隐藏，释放文档流*/
+        }
+        #con-box div.active{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+<!--<ul id="ul1">-->
+    <!--<li class="aa bb">aaa</li>-->
+    <!--<li>bbb</li>-->
+    <!--<li class="aa">ccc</li>-->
+    <!--<li>ddd</li>-->
+<!--</ul>-->
+<!--<ul >-->
+    <!--<li class="aa bb">111</li>-->
+    <!--<li>222</li>-->
+    <!--<li class="aa">333</li>-->
+    <!--<li>444</li>-->
+<!--</ul>-->
+<!--<script>-->
+    <!--function getEleByClassName(clsName,context){-->
+        <!--var result=[];-->
+        <!--context=context||document;-->
+        <!--var aEle=context.getElementsByTagName('*');-->
+        <!--for(var i=0;i<aEle.length;i++){-->
+            <!--var str=aEle.className;-->
+            <!--var arr=str.split(' ');-->
+        <!--}-->
+        <!--for(j=0;j<arr.length;j++){-->
+            <!--if (arr[j]==clsName){-->
+                <!--result.push(arr[j]);-->
+            <!--}-->
+        <!--}-->
+        <!--return result;-->
+    <!--}-->
+    <!---->
+    <!---->
+<!--</script>-->
+<div id="container">
+    <div id="btn-box">
+        <span class="btn-active">111</span>
+        <span>222</span>
+        <span>333</span>
+    </div>
+    <div id="con-box">
+        <div class="active">aaa</div>
+        <div>bbb</div>
+        <div>ccc</div>
+    </div>
+</div>
+<script>
+    var oBtnBox=document.getElementById('btn-box');
+    var aBtn=oBtnBox.getElementsByTagName('span');
+    var oConBox=document.getElementById('con-box');
+    var aCon=oConBox.getElementsByTagName('div');
+
+    for(var i=0;i<aBtn.length;i++){
+        aBtn[i].index=i;
+        aBtn[i].onclick=function(){
+            for(var j=0;j<aBtn.length;j++){
+                aBtn[j].className='';
+                aCon[j].className='';
+            }
+            this.className='btn-active';
+            var index=this.index;
+            aCon[index].className='active';
+        }
+
+    }
+</script>
+
+</body>
+</html>

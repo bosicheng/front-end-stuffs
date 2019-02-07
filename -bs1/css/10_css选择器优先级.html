@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin：0；
+            padding=0;
+        }
+        /*这是通配符，选中页面中的所有元素*/
+        #div1{
+            color:#f00;
+        }
+        .aa{
+            color:#0f0;!important
+        }
+
+        .bb{
+            color:black;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1" class="aa bb" style="“color：#00f">
+    fwqholcna;
+</div>
+<!--选择器优先级排名： !important style(内联)  id  class  标签选择器-->
+<!--一个元素属于多个class时，排在后面的优先级高-->
+<!--优先级上高一级永远要比低一级高，即使是100个class与1个id相比，只有同级可以用数量比较-->
+
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@mixin css3($attr,$val){
+    -webkit-#{$attr}:$val;
+    -moz-#{$attr}:$val;
+    -o-#{$attr}:$val;
+    -ms-#{$attr}:$val;
+    #{$attr}:$val;
+}
+@mixin arrow($width,$col,$dir){
+    //border:5px solid #000
+    border-style:solid;
+    border-width:$width;
+    @if( $dir == left){
+        border-color: transparent  $col transparent transparent;
+    }
+    @if( $dir == right){
+        border-color: transparent  transparent transparent $col;
+    }
+    @if( $dir == top){
+        border-color: transparent  transparent $col transparent;
+    }
+    @if( $dir == bottom){
+        border-color: $col transparent transparent transparent;
+    }
+    width: 0;
+    height: 0;
+}
